@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jyotish — a Vedic astrology engine</title>
+<meta name="description" content="A Vedic (Nirayana) astrology engine and web app built on the rules in B. V. Raman's Astrology for Beginners.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<div class="topbar"><div class="inner">
+  <a class="brand" href="index.html">Jyoti<span>sh</span></a>
+  <nav>
+    <a href="index.html" class="on">Overview</a>
+    <a href="chart.html">Cast a chart</a>
+    <a href="knowledge.html">Knowledge base</a>
+    <a href="api.html">API</a>
+    <a href="about.html">Provenance</a>
+  </nav>
+</div></div>
+
+<main>
+
+  <section class="hero">
+    <h1>A Vedic astrology engine you can read</h1>
+    <p class="lede">Sidereal positions, Rasi and Navamsa, Vimshottari dasha with bhuktis,
+      gochara transits — computed in your browser — and a reading in which every
+      sentence is traceable to a chapter of B.&nbsp;V. Raman's
+      <em>Astrology for Beginners</em>.</p>
+    <div class="pillrow">
+      <span class="pill">Nirayana / sidereal</span>
+      <span class="pill">Lahiri ayanamsa</span>
+      <span class="pill">Mean lunar node</span>
+      <span class="pill">Whole-sign &amp; Sripati houses</span>
+      <span class="pill">Vimshottari to bhukti</span>
+      <span class="pill gold">Runs entirely client-side</span>
+    </div>
+  </section>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Cast a chart</h3>
+      <p>Enter a birth date, time and place. The engine computes the chart in your
+        browser — nothing is sent anywhere.</p>
+      <a class="more" href="chart.html">Open the calculator →</a>
+    </div>
+    <div class="card">
+      <h3>Read the knowledge base</h3>
+      <p>Fourteen documents extracted from the book: signs, planets, houses,
+        aspects, the full calculation method, dashas, interpretation, yogas,
+        transits, horary.</p>
+      <a class="more" href="knowledge.html">Browse 14 documents →</a>
+    </div>
+    <div class="card">
+      <h3>Use the API</h3>
+      <p>A FastAPI service with the same engine in Python, plus a command-line
+        client. Clone the repository and run it locally.</p>
+      <a class="more" href="api.html">See the API →</a>
+    </div>
+  </div>
+
+  <h2>Why this one</h2>
+  <p>The astrology software most people meet is a black box: it prints a chart and a
+    verdict, and you cannot tell where either came from. This is the opposite. The
+    rules are written out in the knowledge base, the code implements exactly those
+    rules, and the reading tags each statement with the chapter it came from — so
+    you can look up <span class="kbd">R-MARRIAGE-MARS</span> and see the sentence in
+    chapter IX that produced it.</p>
+
+  <p>It is also checked against something objective. The book works a chart out by
+    hand in chapter II, and this engine reproduces it:</p>
+
+  <div class="scroll"><table>
+    <thead><tr><th>Graha</th><th>Book (ch. II)</th><th>Engine</th><th>Difference</th></tr></thead>
+    <tbody>
+      <tr><td>Sun</td><td>Libra 17°09′</td><td>Libra 17°08′</td><td class="num">1′</td></tr>
+      <tr><td>Moon</td><td>Sagittarius 22°35′</td><td>Sagittarius 22°32′</td><td class="num">3′</td></tr>
+      <tr><td>Mars</td><td>Sagittarius 11°40′</td><td>Sagittarius 11°39′</td><td class="num">1′</td></tr>
+      <tr><td>Mercury</td><td>Virgo 28°35′</td><td>Virgo 28°33′</td><td class="num">2′</td></tr>
+      <tr><td>Jupiter</td><td>Scorpio 6°53′</td><td>Scorpio 6°56′</td><td class="num">3′</td></tr>
+      <tr><td>Venus</td><td>Virgo 1°45′</td><td>Virgo 1°40′</td><td class="num">5′</td></tr>
+      <tr><td>Saturn</td><td>Aquarius 12°02′</td><td>Aquarius 12°01′</td><td class="num">1′</td></tr>
+      <tr><td>Rahu</td><td>Sagittarius 24°34′</td><td>Sagittarius 24°35′</td><td class="num">1′</td></tr>
+      <tr><td>Ketu</td><td>Gemini 24°34′</td><td>Gemini 24°35′</td><td class="num">1′</td></tr>
+      <tr><td>Ascendant</td><td>Libra 8°01′</td><td>Libra 8°15′</td><td class="num">14′</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted small">The residual is the book's ayanamsa, which it rounds to 21°30′;
+    the engine computes 21°30′55″ for the same date. The Rasi chart, the dignities,
+    the Mars–Jupiter exchange and the Vimshottari balance of 6y 1m 15d match too.</p>
+
+  <h2>What it does not do</h2>
+  <p>It implements <em>one 1930s primer</em> and nothing more: no Ashtakavarga, no full
+    Shadbala, no divisional charts beyond D9, no compatibility matching, no muhurta.
+    Where the scanned book is damaged, the transit tables show a gap rather than a
+    guess. Two of the book's rules — the navamsa count for the number of children, and
+    the Sade Sati third-passage claim — are documented but deliberately not
+    implemented. <a href="about.html">More on the provenance and the limits →</a></p>
+
+</main>
+
+<footer class="site"><div class="inner">
+  Jyotish · engine v1.0.0 · positions from astronomy-engine · Rahu/Ketu are the mean
+  lunar node · strength figures are a simplified positional score, not Shadbala.
+  For study and self-reflection — not medical, financial or legal advice.
+</div></footer>
+
+</body>
+</html>
