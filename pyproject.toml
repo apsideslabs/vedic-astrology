@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jyotish"
+version = "1.0.0"
+description = "Vedic (Nirayana) astrology engine and web app, built on B. V. Raman's Astrology for Beginners"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = ["astrology", "jyotish", "vedic", "nirayana", "vimshottari", "gochara"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Religion",
+  "Topic :: Scientific/Engineering :: Astronomy",
+]
+dependencies = [
+  "astronomy-engine>=2.1.19",
+  "fastapi>=0.110",
+  "uvicorn[standard]>=0.27",
+  "jinja2>=3.1",
+  "pydantic>=2.6",
+  "python-multipart>=0.0.9",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "httpx>=0.27"]
+swisseph = ["pyswisseph>=2.10"]
+
+[project.scripts]
+jyotish = "jyotish.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+jyotish = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "."]
