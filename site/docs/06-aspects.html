@@ -5,26 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>6. Aspects (Drishti) — Jyotish</title>
 <meta name="description" content="Drishti, the graded sight, and the special aspects of Mars, Jupiter and Saturn.">
-<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/app.css">
 </head>
-<body>
-<div class="topbar"><div class="inner">
-  <a class="brand" href="../index.html">Jyoti<span>sh</span></a>
-  <nav>
-    <a href="../index.html">Overview</a>
-    <a href="../chart.html">Cast a chart</a>
-    <a href="../knowledge.html" class="on">Knowledge base</a>
-    <a href="../api.html">API</a>
-    <a href="../about.html">Provenance</a>
-  </nav>
-</div></div>
-<main>
+<body data-page="knowledge" data-root="../">
+
+<main class="shell">
 <div class="docwrap">
-  <aside class="docnav"><div class="grp"><h4>Knowledge base</h4><a href="../knowledge.html">All documents</a></div><div class="grp"><h4>Documents</h4><a href="01-foundations.html">Foundations</a><a href="02-signs.html">The twelve signs</a><a href="03-planets.html">The nine planets</a><a href="04-relationships.html">Relations between planets</a><a href="05-houses.html">The twelve houses</a><a href="06-aspects.html" class="on">Aspects</a><a href="07-calculation.html">Casting a horoscope</a><a href="08-strength.html">Strength</a><a href="09-dasha.html">Vimshottari dasha</a><a href="10-interpretation.html">Interpretation</a><a href="11-yogas.html">Yogas</a><a href="12-transits.html">Transits</a><a href="13-horary.html">Horary</a><a href="14-dasha-results.html">Dasha results</a><a href="source-notes.html">Source notes</a></div><div class="grp"><h4>Elsewhere</h4><a href="../chart.html">Cast a chart</a><a href="../api.html">API</a></div></aside>
+  <aside class="docnav">
+    <div class="grp"><h4>Knowledge base</h4><a href="../knowledge.html">All documents</a></div>
+    <div class="grp"><h4>Documents</h4><a href="01-foundations.html">01 · Foundations</a><a href="02-signs.html">02 · The twelve signs</a><a href="03-planets.html">03 · The nine planets</a><a href="04-relationships.html">04 · Relations between planets</a><a href="05-houses.html">05 · The twelve houses</a><a href="06-aspects.html" class="on">06 · Aspects</a><a href="07-calculation.html">07 · Casting a horoscope</a><a href="08-strength.html">08 · Strength</a><a href="09-dasha.html">09 · Vimshottari dasha</a><a href="10-interpretation.html">10 · Interpretation</a><a href="11-yogas.html">11 · Yogas</a><a href="12-transits.html">12 · Transits</a><a href="13-horary.html">13 · Horary</a><a href="14-dasha-results.html">14 · Dasha results</a><a href="source-notes.html">15 · Source notes</a></div>
+    <div class="grp"><h4>Elsewhere</h4>
+      <a href="../chart.html">Cast a chart</a>
+      <a href="../panchanga.html">Panchanga</a>
+      <a href="../transits.html">Transits</a>
+    </div>
+  </aside>
   <article class="prose">
-    <h1 id="6-aspects-drishti">6. Aspects (Drishti)</h1>
-<p><strong>SOURCE:</strong> chapter I, "Drishti or Aspect".</p>
-<h2 id="the-basic-rule">The basic rule</h2>
+    <p class="eyebrow">Document 06 · ch. I</p>
+    <p><strong>SOURCE:</strong> chapter I, "Drishti or Aspect".</p>
+<h2>The basic rule</h2>
 <blockquote>
 <p>"For a beginner it is enough to know that according to Hindu Astrology,
 aspects are counted from sign to sign. An aspect is good or bad according to
@@ -33,7 +32,7 @@ the relation between the aspecting and the aspected body."</p>
 <p>Sign to sign, not degree to degree. A planet in Aries aspects the whole of the
 7th sign from it (Libra) and everything in it. That is why the engine's
 <code>aspects</code> list is built from sign distances and carries no orb.</p>
-<h2 id="the-grades-of-sight">The grades of sight</h2>
+<h2>The grades of sight</h2>
 <p>The book gives a graded sight, which is the <em>drishti pinda</em> used in the
 stronger calculations:</p>
 <table>
@@ -62,7 +61,7 @@ stronger calculations:</p>
 </tr>
 </tbody>
 </table>
-<h2 id="special-aspects">Special aspects</h2>
+<h2>Special aspects</h2>
 <blockquote>
 <p>"Saturn, Jupiter and Mars have special aspects. Saturn powerfully aspects
 the 3rd and the 10th houses, Jupiter the 5th and the 9th houses, and Mars,
@@ -98,7 +97,7 @@ the 4th and the 8th."</p>
 <p>The engine implements this in <code>zodiac.SPECIAL_ASPECTS</code>; the partial-sight
 fractions are in <code>zodiac.PARTIAL_SIGHT</code> and are reported per house by
 <code>Chart.aspected_houses</code>.</p>
-<h2 id="the-books-worked-illustration">The book's worked illustration</h2>
+<h2>The book's worked illustration</h2>
 <blockquote>
 <p>"If the Sun is in Cancer and Saturn in Taurus, we say that the Sun is in the
 3rd from Saturn and consequently receives the powerful aspect (3rd house
@@ -107,7 +106,7 @@ aspect) of Saturn."</p>
 <p>Worth checking the arithmetic: Taurus → Cancer is 3 signs, so Cancer is the
 3rd from Taurus, and Saturn's special 3rd-house aspect falls there. The engine
 reproduces this — see <code>test_aspects_include_special_ones</code>.</p>
-<h2 id="how-to-judge-an-aspect">How to judge an aspect</h2>
+<h2>How to judge an aspect</h2>
 <p>The book gives these rules for reading an aspect once found:</p>
 <ol>
 <li><strong>By nature of the aspecting planet.</strong> "The opposition (7th house) aspect
@@ -131,7 +130,7 @@ reproduces this — see <code>test_aspects_include_special_ones</code>.</p>
    aspect has the same power to do good or bad as conjunction, according to the
    nature of the planet involved."</li>
 </ol>
-<h2 id="where-aspects-are-used-downstream">Where aspects are used downstream</h2>
+<h2>Where aspects are used downstream</h2>
 <ul>
 <li><strong>Strength.</strong> Drukbala: "Aspects of benefics give full Drukbala while
   aspects of malefics take away Drukbala" (chapter III).</li>
@@ -151,9 +150,15 @@ reproduces this — see <code>test_aspects_include_special_ones</code>.</p>
   </article>
 </div>
 </main>
-<footer class="site"><div class="inner">
-  Jyotish · engine v1.0.0 · extracted from B. V. Raman, <em>Astrology for Beginners</em>.
-  For study and self-reflection — not medical, financial or legal advice.
+
+<footer class="site"><div class="shell">
+  <div class="cols">
+    <div>Jyotish · engine v1.0.0 · MIT<br>
+      <span class="mono">extracted from B. V. Raman, Astrology for Beginners</span></div>
+    <div class="mono">For study and self-reflection — not medical, financial or legal advice.</div>
+  </div>
 </div></footer>
+
+<script src="../assets/js/nav.js"></script>
 </body>
 </html>

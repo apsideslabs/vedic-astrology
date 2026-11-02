@@ -5,26 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>5. The twelve houses (Bhavas) — Jyotish</title>
 <meta name="description" content="Bhavas, kendras and trines, karakas, how to read a house.">
-<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/app.css">
 </head>
-<body>
-<div class="topbar"><div class="inner">
-  <a class="brand" href="../index.html">Jyoti<span>sh</span></a>
-  <nav>
-    <a href="../index.html">Overview</a>
-    <a href="../chart.html">Cast a chart</a>
-    <a href="../knowledge.html" class="on">Knowledge base</a>
-    <a href="../api.html">API</a>
-    <a href="../about.html">Provenance</a>
-  </nav>
-</div></div>
-<main>
+<body data-page="knowledge" data-root="../">
+
+<main class="shell">
 <div class="docwrap">
-  <aside class="docnav"><div class="grp"><h4>Knowledge base</h4><a href="../knowledge.html">All documents</a></div><div class="grp"><h4>Documents</h4><a href="01-foundations.html">Foundations</a><a href="02-signs.html">The twelve signs</a><a href="03-planets.html">The nine planets</a><a href="04-relationships.html">Relations between planets</a><a href="05-houses.html" class="on">The twelve houses</a><a href="06-aspects.html">Aspects</a><a href="07-calculation.html">Casting a horoscope</a><a href="08-strength.html">Strength</a><a href="09-dasha.html">Vimshottari dasha</a><a href="10-interpretation.html">Interpretation</a><a href="11-yogas.html">Yogas</a><a href="12-transits.html">Transits</a><a href="13-horary.html">Horary</a><a href="14-dasha-results.html">Dasha results</a><a href="source-notes.html">Source notes</a></div><div class="grp"><h4>Elsewhere</h4><a href="../chart.html">Cast a chart</a><a href="../api.html">API</a></div></aside>
+  <aside class="docnav">
+    <div class="grp"><h4>Knowledge base</h4><a href="../knowledge.html">All documents</a></div>
+    <div class="grp"><h4>Documents</h4><a href="01-foundations.html">01 · Foundations</a><a href="02-signs.html">02 · The twelve signs</a><a href="03-planets.html">03 · The nine planets</a><a href="04-relationships.html">04 · Relations between planets</a><a href="05-houses.html" class="on">05 · The twelve houses</a><a href="06-aspects.html">06 · Aspects</a><a href="07-calculation.html">07 · Casting a horoscope</a><a href="08-strength.html">08 · Strength</a><a href="09-dasha.html">09 · Vimshottari dasha</a><a href="10-interpretation.html">10 · Interpretation</a><a href="11-yogas.html">11 · Yogas</a><a href="12-transits.html">12 · Transits</a><a href="13-horary.html">13 · Horary</a><a href="14-dasha-results.html">14 · Dasha results</a><a href="source-notes.html">15 · Source notes</a></div>
+    <div class="grp"><h4>Elsewhere</h4>
+      <a href="../chart.html">Cast a chart</a>
+      <a href="../panchanga.html">Panchanga</a>
+      <a href="../transits.html">Transits</a>
+    </div>
+  </aside>
   <article class="prose">
-    <h1 id="5-the-twelve-houses-bhavas">5. The twelve houses (Bhavas)</h1>
-<p><strong>SOURCE:</strong> chapter I, "The Twelve Houses" and "Kinds of Houses".</p>
-<h2 id="houses-are-not-signs">Houses are not signs</h2>
+    <p class="eyebrow">Document 05 · ch. I</p>
+    <p><strong>SOURCE:</strong> chapter I, "The Twelve Houses" and "Kinds of Houses".</p>
+<h2>Houses are not signs</h2>
 <p>This is the first thing the book insists on:</p>
 <blockquote>
 <p>"The twelve houses are not necessarily coincident with the twelve signs of
@@ -44,7 +43,7 @@ latitude of the place of the birth."</p>
 </ol>
 <p>The engine defaults to whole signs, and offers Sripati (Porphyry) cusps and
 equal houses for the second reading. See <a href="07-calculation.md">07-calculation.md</a>.</p>
-<h2 id="the-significations">The significations</h2>
+<h2>The significations</h2>
 <p><strong>SOURCE:</strong> chapter I, transcribed as printed (the scan loses a few words, and
 the gaps are shown rather than guessed):</p>
 <table>
@@ -124,7 +123,7 @@ engine's <code>zodiac.HOUSE_SIGNIFICATIONS</code> uses a merged version:</p>
 <li>11th: gains, elder siblings, friends, fulfilment of desires</li>
 <li>12th: loss, expenditure, foreign lands, moksha, sleep, confinement</li>
 </ul>
-<h2 id="kinds-of-houses">Kinds of houses</h2>
+<h2>Kinds of houses</h2>
 <p><strong>SOURCE:</strong> chapter I, "Kinds of Houses".</p>
 <table>
 <thead>
@@ -169,7 +168,7 @@ the kendra term.</p>
 <p><strong>CAUTION:</strong> the 6th, 8th and 12th are also the <strong>dusthanas</strong>, the houses of
 difficulty, which the book does not name as a group but treats as such
 throughout ("lords of 3, 6, 8 and 11 do evil and cause miseries").</p>
-<h2 id="karakas-of-the-houses">Karakas of the houses</h2>
+<h2>Karakas of the houses</h2>
 <p><strong>SOURCE:</strong> chapter I. Each planet is the Karaka of some matter:</p>
 <table>
 <thead>
@@ -223,7 +222,7 @@ and the karaka. Chapter IX says it plainly for children — "Favourable
 disposition of all these three factors is a great asset for getting good,
 long-lived and obedient children" — and chapter VIII does the same for the
 parents (4th house, its lord and the Moon; 9th house, its lord and the Sun).</p>
-<h2 id="reading-a-house">Reading a house</h2>
+<h2>Reading a house</h2>
 <p><strong>SOURCE:</strong> chapter III, "Reading a House". A house is judged from:</p>
 <ol>
 <li>the strength, aspect and conjunction of the lord of the house;</li>
@@ -237,7 +236,7 @@ parents (4th house, its lord and the Moon; 9th house, its lord and the Sun).</p>
 VI, VII, VIII, IX and XII. Any implementation that reads only from the Lagna
 is doing half the job; the engine exposes <code>moon_sign()</code> and the Navamsa sign
 of every planet so that a caller can do both.</p>
-<h2 id="houses-counted-from-other-houses">Houses counted from other houses</h2>
+<h2>Houses counted from other houses</h2>
 <p>The book uses derived houses freely and calls them out explicitly:</p>
 <ul>
 <li>the father's finances are "the 2nd from the 9th", his ills "the 6th from the
@@ -252,9 +251,15 @@ of every planet so that a caller can do both.</p>
   </article>
 </div>
 </main>
-<footer class="site"><div class="inner">
-  Jyotish · engine v1.0.0 · extracted from B. V. Raman, <em>Astrology for Beginners</em>.
-  For study and self-reflection — not medical, financial or legal advice.
+
+<footer class="site"><div class="shell">
+  <div class="cols">
+    <div>Jyotish · engine v1.0.0 · MIT<br>
+      <span class="mono">extracted from B. V. Raman, Astrology for Beginners</span></div>
+    <div class="mono">For study and self-reflection — not medical, financial or legal advice.</div>
+  </div>
 </div></footer>
+
+<script src="../assets/js/nav.js"></script>
 </body>
 </html>
