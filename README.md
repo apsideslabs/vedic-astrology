@@ -147,7 +147,16 @@ gochara transits with Sade Sati state, and the reading.
 `site/` is a plain multi-page static site — `index.html`, `chart.html`,
 `knowledge.html`, `api.html`, `about.html`, plus `docs/*.html` generated from
 the markdown by `tools/build_site.py`. It is published from the `gh-pages`
-branch.
+branch, which holds the built site only (`.nojekyll` is present so Pages serves
+the files as-is rather than running them through Jekyll).
+
+To redeploy after editing anything under `docs/` or `site/`:
+
+```bash
+python3 tools/build_site.py                  # regenerate site/docs/*.html
+git add -A && git commit -m "..." && git push
+# then copy site/* to the root of gh-pages and push that branch
+```
 
 The chart page computes everything in the browser: `site/assets/js/` is a port
 of `src/jyotish/` and `site/assets/js/data.js` is generated from the Python
