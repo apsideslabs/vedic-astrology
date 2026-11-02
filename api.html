@@ -3,49 +3,32 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>API — Jyotish</title>
-<meta name="description" content="The Jyotish FastAPI service and command-line client.">
-<link rel="stylesheet" href="assets/css/site.css">
+<title>API and CLI — Jyotish</title>
+<meta name="description" content="The Jyotish Python package, FastAPI service and command-line client.">
+<link rel="stylesheet" href="assets/css/app.css">
 </head>
-<body>
+<body data-page="api" data-root="">
 
-<div class="topbar"><div class="inner">
-  <a class="brand" href="index.html">Jyoti<span>sh</span></a>
-  <nav>
-    <a href="index.html">Overview</a>
-    <a href="chart.html">Cast a chart</a>
-    <a href="knowledge.html">Knowledge base</a>
-    <a href="api.html" class="on">API</a>
-    <a href="about.html">Provenance</a>
-  </nav>
-</div></div>
+<main class="shell narrow">
 
-<main class="narrow">
+  <p class="eyebrow">Reference · 06</p>
+  <h1>API and CLI</h1>
+  <p class="lede">The site runs the engine in your browser. The same engine ships as a
+    Python package with a FastAPI service and a command-line client, for when you want
+    it server-side.</p>
 
-  <h1>API and command line</h1>
-  <p class="lede">The chart page runs the engine in your browser. The same engine also
-    ships as a Python package with a FastAPI service — clone the repository and run it
-    locally.</p>
-
-  <h2>Run it</h2>
-  <pre><code>git clone https://github.com/apsideslabs/vedic-astrology.git
+  <h2><span class="num">01</span>Run it</h2>
+  <pre class="prose" style="margin:0"><code>git clone https://github.com/apsideslabs/vedic-astrology.git
 cd vedic-astrology
 pip install -r requirements.txt
 
-# web app
-uvicorn app.main:app --reload          # http://127.0.0.1:8000
-                                       # interactive docs at /docs
-
-# command line
+uvicorn app.main:app --reload      # http://127.0.0.1:8000  (docs at /docs)
 python -m jyotish.cli --date 1990-04-14 --time 08:15 \
     --lat 13.0827 --lon 80.2707 --tz 5.5 --place Chennai
+python -m pytest tests -q          # 34 tests</code></pre>
 
-# tests
-python -m pytest tests -q</code></pre>
-
-  <h2>POST /api/chart</h2>
-  <p>Takes birth data, returns the whole chart as JSON.</p>
-  <pre><code>{
+  <h2><span class="num">02</span>POST /api/chart</h2>
+  <div class="prose"><pre><code>{
   "date": "1990-04-14",
   "time": "08:15",
   "latitude": 13.0827,
@@ -53,81 +36,69 @@ python -m pytest tests -q</code></pre>
   "tz_offset": 5.5,
   "place": "Chennai",
   "name": "",
-  "ayanamsa": "lahiri",        // or "raman_397"
-  "house_system": "whole_sign" // or "sripati", "equal"
-}</code></pre>
+  "ayanamsa": "lahiri",          // or "raman_397"
+  "house_system": "whole_sign"   // or "sripati", "equal"
+}</code></pre></div>
 
-  <p>The response contains:</p>
-  <ul>
-    <li><code>birth</code> — local time, UT, Julian Day, coordinates</li>
-    <li><code>ayanamsa</code> — model, value in degrees, formatted</li>
-    <li><code>lagna</code> — sidereal degree, sign, nakshatra, pada, navamsa, lord</li>
-    <li><code>planets</code> — nine grahas with sign, degree, nakshatra, pada,
-      navamsa, house, dignity, combustion, retrogression, strength breakdown</li>
-    <li><code>houses</code> — twelve bhavas with sign, lord, where the lord sits,
-      occupants, cusps, significations</li>
-    <li><code>panchanga</code> — vara, tithi, yoga, karana</li>
-    <li><code>vimshottari</code> — the full timeline with bhuktis and the current
-      period</li>
-    <li><code>yogas</code> — every yoga the engine knows, present or not</li>
-    <li><code>aspects</code> and <code>aspects_by_house</code> — planet-to-planet
-      and house aspects with sight fractions</li>
-    <li><code>transits</code> — gochara from the Janma Rasi, with Sade Sati state</li>
-    <li><code>interpretation</code> — sections of statements, each with
-      <code>{rule, text, source}</code></li>
-  </ul>
+  <p>The response carries <span class="mono">birth</span>, <span class="mono">ayanamsa</span>,
+    <span class="mono">lagna</span>, <span class="mono">planets</span> (nine, with sign,
+    degree, nakshatra, pada, navamsa, house, dignity, combustion, retrogression and a
+    strength breakdown), <span class="mono">houses</span>,
+    <span class="mono">panchanga</span>, <span class="mono">vimshottari</span> with
+    bhuktis, <span class="mono">yogas</span>, <span class="mono">aspects</span>,
+    <span class="mono">transits</span> and <span class="mono">interpretation</span>.</p>
 
-  <h2>GET /api/health</h2>
-  <p>Engine version, ephemeris version, and the ayanamsas and house systems on offer.</p>
+  <p class="small muted">Every interpretation statement is
+    <span class="mono">{rule, text, source}</span> — the rule id and the chapter, so a
+    reading can be audited rather than trusted.</p>
 
-  <h2>Library use</h2>
-  <pre><code>from jyotish import BirthData, build_chart
+  <h2><span class="num">03</span>Library use</h2>
+  <div class="prose"><pre><code>from jyotish import BirthData, build_chart
 from jyotish import interpret, transits
 
-birth = BirthData(
-    date="1990-04-14", time="08:15",
-    latitude=13.0827, longitude=80.2707,
-    tz_offset=5.5, place="Chennai",
-)
+birth = BirthData(date="1990-04-14", time="08:15",
+                  latitude=13.0827, longitude=80.2707,
+                  tz_offset=5.5, place="Chennai")
 chart = build_chart(birth, ayanamsa="lahiri", house_system="whole_sign")
 
-chart.lagna_sign                    # 'Taurus'
-chart.planets["Moon"].dignity       # 'debilitated'
-chart.vimshottari["current"]        # the running mahadasha and bhukti
+chart.lagna_sign                 # 'Taurus'
+chart.planets["Moon"].dignity    # 'debilitated'
+chart.vimshottari["current"]     # running mahadasha and bhukti
 
-reading = interpret.interpret(chart, transits.analyse(chart))
-for section in reading["sections"]:
-    for s in section["statements"]:
-        print(s["rule"], "|", s["source"], "|", s["text"][:80])</code></pre>
+reading = interpret.interpret(chart, transits.analyse(chart))</code></pre></div>
 
-  <h2>The stack</h2>
+  <h2><span class="num">04</span>The stack</h2>
   <div class="scroll"><table>
     <thead><tr><th>Layer</th><th>Choice</th><th>Why</th></tr></thead>
     <tbody>
       <tr><td>Ephemeris</td><td>astronomy-engine</td>
         <td>pure Python and JS, no data files, ~1′ accuracy, MIT</td></tr>
-      <tr><td>Web</td><td>FastAPI + Uvicorn</td>
-        <td>typed request models, automatic validation, OpenAPI</td></tr>
+      <tr><td>API</td><td>FastAPI + Uvicorn</td>
+        <td>typed models, validation, OpenAPI for free</td></tr>
       <tr><td>Validation</td><td>Pydantic v2</td><td>range and format checks on every input</td></tr>
       <tr><td>Templates</td><td>Jinja2</td><td>server-rendered shell, no build step</td></tr>
       <tr><td>Tests</td><td>pytest + httpx</td><td>34 tests, including the book's worked example</td></tr>
+      <tr><td>Site</td><td>HTML + CSS + vanilla JS</td><td>no framework, no bundler</td></tr>
+      <tr><td>Hosting</td><td>GitHub Pages</td><td><span class="mono">gh-pages</span> branch, <span class="mono">.nojekyll</span></td></tr>
     </tbody>
   </table></div>
 
-  <p class="muted small">On the ephemeris: the industry standard is the Swiss
-    Ephemeris (<code>pyswisseph</code>), which is what commercial packages use and which
-    implements about forty ayanamsas natively. It is a C extension.
-    <code>ephemeris.py</code> is deliberately a thin adapter — it returns
-    <code>{planet: {longitude, latitude, speed}}</code> and nothing else — so swapping
-    in <code>pyswisseph</code> is a one-function change with no effect on the rest of
-    the engine.</p>
+  <p class="small muted" style="margin-top:16px">On the ephemeris: the industry standard
+    is the Swiss Ephemeris (<span class="mono">pyswisseph</span>), which implements about
+    forty ayanamsas natively. It is a C extension.
+    <span class="mono">ephemeris.py</span> is a thin adapter returning
+    <span class="mono">{planet: {longitude, latitude, speed}}</span> and nothing else, so
+    swapping it in is a one-function change.</p>
 
 </main>
 
-<footer class="site"><div class="inner">
-  Jyotish · engine v1.0.0 · MIT licensed. For study and self-reflection — not
-  medical, financial or legal advice.
+<footer class="site"><div class="shell">
+  <div class="cols">
+    <div>Jyotish · engine v1.0.0 · MIT</div>
+    <div class="mono"><a href="https://github.com/apsideslabs/vedic-astrology">github.com/apsideslabs/vedic-astrology</a></div>
+  </div>
 </div></footer>
 
+<script src="assets/js/nav.js"></script>
 </body>
 </html>
