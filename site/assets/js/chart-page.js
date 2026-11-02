@@ -109,12 +109,26 @@
         <div class="figure">
           <div class="cap"><span>Vimshottari cycle</span><span>${esc(chart.vimshottari.balance_at_birth.lord)} at birth</span></div>
           ${timeline(chart)}
-          <p class="small muted" style="margin-top:16px">
-            Balance of ${esc(chart.vimshottari.balance_at_birth.lord)} at birth:
-            ${chart.vimshottari.balance_at_birth.years}y
-            ${chart.vimshottari.balance_at_birth.months}m
-            ${chart.vimshottari.balance_at_birth.days}d. Years of 365.25 days.
-          </p>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px">
+            <div class="card" style="padding:12px 14px"><div class="k">Now running</div>
+              <div class="v" style="font-size:16px">${cur.mahadasha ? esc(cur.mahadasha.lord) : "—"}${
+                cur.antardasha ? " / " + esc(cur.antardasha.lord) : ""}</div>
+              <div class="s">${cur.mahadasha ? esc(cur.mahadasha.start_date) + " → " + esc(cur.mahadasha.end_date) : ""}</div></div>
+            <div class="card" style="padding:12px 14px"><div class="k">At birth</div>
+              <div class="v" style="font-size:16px">${esc(chart.vimshottari.balance_at_birth.lord)}</div>
+              <div class="s">${chart.vimshottari.balance_at_birth.years}y ${
+                chart.vimshottari.balance_at_birth.months}m ${
+                chart.vimshottari.balance_at_birth.days}d to run</div></div>
+          </div>
+          <table style="margin-top:16px">
+            <thead><tr><th>Mahadasha</th><th>From</th><th>To</th></tr></thead><tbody>
+            ${chart.vimshottari.mahadashas.map((m) => `<tr class="${
+              cur.mahadasha && cur.mahadasha.lord === m.lord ? "now" : ""}">
+              <td>${esc(m.lord)}</td><td class="num">${esc(m.start_date)}</td>
+              <td class="num">${esc(m.end_date)}</td></tr>`).join("")}
+            </tbody></table>
+          <p class="small muted" style="margin-top:12px">Years of 365.25 days, reckoned from
+            the Moon in ${esc(chart.vimshottari.janma_nakshatra)}.</p>
         </div>
       </div>
     </section>`;
