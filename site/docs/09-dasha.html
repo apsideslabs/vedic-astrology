@@ -5,26 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>9. Vimshottari dasha — the timing system — Jyotish</title>
 <meta name="description" content="The nine periods, the arithmetic, the balance at birth, how to judge a period.">
-<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/app.css">
 </head>
-<body>
-<div class="topbar"><div class="inner">
-  <a class="brand" href="../index.html">Jyoti<span>sh</span></a>
-  <nav>
-    <a href="../index.html">Overview</a>
-    <a href="../chart.html">Cast a chart</a>
-    <a href="../knowledge.html" class="on">Knowledge base</a>
-    <a href="../api.html">API</a>
-    <a href="../about.html">Provenance</a>
-  </nav>
-</div></div>
-<main>
+<body data-page="knowledge" data-root="../">
+
+<main class="shell">
 <div class="docwrap">
-  <aside class="docnav"><div class="grp"><h4>Knowledge base</h4><a href="../knowledge.html">All documents</a></div><div class="grp"><h4>Documents</h4><a href="01-foundations.html">Foundations</a><a href="02-signs.html">The twelve signs</a><a href="03-planets.html">The nine planets</a><a href="04-relationships.html">Relations between planets</a><a href="05-houses.html">The twelve houses</a><a href="06-aspects.html">Aspects</a><a href="07-calculation.html">Casting a horoscope</a><a href="08-strength.html">Strength</a><a href="09-dasha.html" class="on">Vimshottari dasha</a><a href="10-interpretation.html">Interpretation</a><a href="11-yogas.html">Yogas</a><a href="12-transits.html">Transits</a><a href="13-horary.html">Horary</a><a href="14-dasha-results.html">Dasha results</a><a href="source-notes.html">Source notes</a></div><div class="grp"><h4>Elsewhere</h4><a href="../chart.html">Cast a chart</a><a href="../api.html">API</a></div></aside>
+  <aside class="docnav">
+    <div class="grp"><h4>Knowledge base</h4><a href="../knowledge.html">All documents</a></div>
+    <div class="grp"><h4>Documents</h4><a href="01-foundations.html">01 · Foundations</a><a href="02-signs.html">02 · The twelve signs</a><a href="03-planets.html">03 · The nine planets</a><a href="04-relationships.html">04 · Relations between planets</a><a href="05-houses.html">05 · The twelve houses</a><a href="06-aspects.html">06 · Aspects</a><a href="07-calculation.html">07 · Casting a horoscope</a><a href="08-strength.html">08 · Strength</a><a href="09-dasha.html" class="on">09 · Vimshottari dasha</a><a href="10-interpretation.html">10 · Interpretation</a><a href="11-yogas.html">11 · Yogas</a><a href="12-transits.html">12 · Transits</a><a href="13-horary.html">13 · Horary</a><a href="14-dasha-results.html">14 · Dasha results</a><a href="source-notes.html">15 · Source notes</a></div>
+    <div class="grp"><h4>Elsewhere</h4>
+      <a href="../chart.html">Cast a chart</a>
+      <a href="../panchanga.html">Panchanga</a>
+      <a href="../transits.html">Transits</a>
+    </div>
+  </aside>
   <article class="prose">
-    <h1 id="9-vimshottari-dasha-the-timing-system">9. Vimshottari dasha — the timing system</h1>
-<p><strong>SOURCE:</strong> chapter X, "Timing Events".</p>
-<h2 id="why-this-system">Why this system</h2>
+    <p class="eyebrow">Document 09 · ch. X</p>
+    <p><strong>SOURCE:</strong> chapter X, "Timing Events".</p>
+<h2>Why this system</h2>
 <blockquote>
 <p>"There are any number of Dasas in vogue in India but we propose to deal with
 Vimshottari or Udu Dasa. In the choice of any particular type of Dasa, the
@@ -35,7 +34,7 @@ been built upon a firm foundation."</p>
 "scientific basis", and answers that they "forget the value of experience
 which should of course be the true criterion of all knowledge". That is the
 whole of its defence; there is no derivation offered, here or anywhere.</p>
-<h2 id="the-nine-periods">The nine periods</h2>
+<h2>The nine periods</h2>
 <p><strong>SOURCE:</strong> chapter X, "Table of Dasas".</p>
 <table>
 <thead>
@@ -91,7 +90,7 @@ whole of its defence; there is no derivation offered, here or anywhere.</p>
 repeat across the 27 nakshatras: Ashwini is Ketu, Bharani Venus, Krittika Sun,
 Rohini Moon, Mrigashira Mars, Ardra Rahu, Punarvasu Jupiter, Pushya Saturn,
 Ashlesha Mercury, and then the cycle begins again at Magha with Ketu.</p>
-<h2 id="finding-the-ruling-period-at-birth">Finding the ruling period at birth</h2>
+<h2>Finding the ruling period at birth</h2>
 <blockquote>
 <p>"In order to calculate the ruling period at birth and date of its
 commencement it is necessary to obtain the position of the Moon at the time
@@ -115,7 +114,7 @@ nakshatra and multiplies, which is the same thing exactly:
 <code>balance = lord_years × (1 − elapsed_fraction)</code>. It also back-dates the start
 of that mahadasha by the elapsed fraction, which is how you get a timeline in
 which the first period begins before birth.</p>
-<h2 id="sub-periods-bhuktis">Sub-periods (Bhuktis)</h2>
+<h2>Sub-periods (Bhuktis)</h2>
 <p><strong>SOURCE:</strong> chapter X. Each main period is divided into nine sub-periods, in
 the same cyclic order starting from the main lord; each sub-period is divided
 again into antaras, and so on down to the <em>swara</em>, "the period necessary for
@@ -137,7 +136,7 @@ inside the dasha of planet A lasts <code>A × B / 120</code> years. For 19 and 1
 therefore computes the proportion directly instead of reproducing the digit
 trick, and a test asserts the two agree
 (<code>test_sub_period_matches_book_shortcut</code>).</p>
-<h2 id="finding-the-bhukti-at-birth">Finding the bhukti at birth</h2>
+<h2>Finding the bhukti at birth</h2>
 <blockquote>
 <p>"With the expired portion of Dasa there are certain sub-periods ruling under
 the period which have also expired. After determining them we can say under
@@ -210,12 +209,12 @@ unexpired Bhukti at birth."</p>
 </table>
 <p><code>16y 0m 0d − 13y 10m 15d = 2y 1m 15d</code> — the balance of <strong>Saturn's</strong> bhukti in
 Venus's dasha at birth.</p>
-<h2 id="the-year">The year</h2>
+<h2>The year</h2>
 <p>The book's arithmetic is in years, months and days of 30 days. The engine uses
 a <strong>solar year of 365.25 days</strong>, the convention of Indian ephemerides, and
 exposes it as <code>YEAR_DAYS</code> so that 360-day and 365.2425-day variants can be
 swapped in.</p>
-<h2 id="how-to-judge-a-dasha">How to judge a dasha</h2>
+<h2>How to judge a dasha</h2>
 <p><strong>SOURCE:</strong> chapter X, "Judgment" and "General Results".</p>
 <p>The core principle:</p>
 <blockquote>
@@ -259,7 +258,7 @@ of the planet. The prediction should always be consistent with the person for
 whom it is intended, under the condition of life in which he is brought up as
 well as the physical possibility at the time."</p>
 </blockquote>
-<h2 id="transits-must-be-combined-with-the-dasha">Transits must be combined with the dasha</h2>
+<h2>Transits must be combined with the dasha</h2>
 <p><strong>SOURCE:</strong> chapter XII.</p>
 <blockquote>
 <p>"The Gochara results should never be interpreted without reference to the
@@ -276,9 +275,15 @@ in <a href="14-dasha-results.md">14-dasha-results.md</a>.</p>
   </article>
 </div>
 </main>
-<footer class="site"><div class="inner">
-  Jyotish · engine v1.0.0 · extracted from B. V. Raman, <em>Astrology for Beginners</em>.
-  For study and self-reflection — not medical, financial or legal advice.
+
+<footer class="site"><div class="shell">
+  <div class="cols">
+    <div>Jyotish · engine v1.0.0 · MIT<br>
+      <span class="mono">extracted from B. V. Raman, Astrology for Beginners</span></div>
+    <div class="mono">For study and self-reflection — not medical, financial or legal advice.</div>
+  </div>
 </div></footer>
+
+<script src="../assets/js/nav.js"></script>
 </body>
 </html>

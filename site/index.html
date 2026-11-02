@@ -4,75 +4,89 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jyotish — a Vedic astrology engine</title>
-<meta name="description" content="A Vedic (Nirayana) astrology engine and web app built on the rules in B. V. Raman's Astrology for Beginners.">
-<link rel="stylesheet" href="assets/css/site.css">
+<meta name="description" content="A Vedic (Nirayana) astrology engine built on B. V. Raman's Astrology for Beginners: sidereal charts, Rasi and Navamsa wheels, Vimshottari dasha, panchanga and gochara transits — computed in your browser.">
+<link rel="stylesheet" href="assets/css/app.css">
 </head>
-<body>
+<body data-page="index" data-root="">
 
-<div class="topbar"><div class="inner">
-  <a class="brand" href="index.html">Jyoti<span>sh</span></a>
-  <nav>
-    <a href="index.html" class="on">Overview</a>
-    <a href="chart.html">Cast a chart</a>
-    <a href="knowledge.html">Knowledge base</a>
-    <a href="api.html">API</a>
-    <a href="about.html">Provenance</a>
-  </nav>
-</div></div>
-
-<main>
+<main class="shell">
 
   <section class="hero">
-    <h1>A Vedic astrology engine you can read</h1>
-    <p class="lede">Sidereal positions, Rasi and Navamsa, Vimshottari dasha with bhuktis,
-      gochara transits — computed in your browser — and a reading in which every
-      sentence is traceable to a chapter of B.&nbsp;V. Raman's
-      <em>Astrology for Beginners</em>.</p>
-    <div class="pillrow">
-      <span class="pill">Nirayana / sidereal</span>
-      <span class="pill">Lahiri ayanamsa</span>
-      <span class="pill">Mean lunar node</span>
-      <span class="pill">Whole-sign &amp; Sripati houses</span>
-      <span class="pill">Vimshottari to bhukti</span>
-      <span class="pill gold">Runs entirely client-side</span>
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Vedic astrology · Nirayana · v1.0</p>
+        <h1>The sky at the moment of birth —<br><span class="thin">and every rule behind the reading.</span></h1>
+        <p class="lede">A working sidereal astrology engine built on one book: B. V. Raman's
+          <em>Astrology for Beginners</em>. Positions, Rasi and Navamsa, Vimshottari to the
+          bhukti, panchanga, gochara — computed in your browser, and a reading where each
+          sentence cites the chapter it came from.</p>
+        <div class="actions">
+          <a class="btn" href="chart.html">Cast a chart</a>
+          <a class="btn ghost" href="knowledge.html">Read the knowledge base</a>
+        </div>
+        <div class="chips">
+          <span class="chip">Lahiri ayanamsa</span>
+          <span class="chip">mean lunar node</span>
+          <span class="chip">whole-sign &amp; Sripati</span>
+          <span class="chip gold">no server</span>
+        </div>
+      </div>
+
+      <div class="card" style="padding:22px">
+        <div class="k">The source</div>
+        <p style="font-family:var(--serif);font-size:19px;line-height:1.35;margin:6px 0 10px">
+          Astrology for Beginners</p>
+        <p class="small muted" style="margin-bottom:14px">B. V. Raman · UBS Publishers'
+          Distributors · 135 pages, twelve chapters and two appendices.</p>
+        <div class="stat-row" style="gap:22px;margin:0">
+          <div class="stat"><div class="n">135</div><div class="l">pages read</div></div>
+          <div class="stat"><div class="n">15</div><div class="l">documents</div></div>
+          <div class="stat"><div class="n">34</div><div class="l">tests</div></div>
+        </div>
+        <hr style="margin:16px 0">
+        <p class="small muted" style="margin:0">Every rule is tagged <strong>source</strong>
+          (in the book) or <strong>standard</strong> (practice it assumes). Where the scan
+          is damaged, the gap is shown rather than filled in.</p>
+      </div>
     </div>
   </section>
 
-  <div class="cards">
-    <div class="card">
+  <div class="doors">
+    <a class="door" href="chart.html">
+      <div class="n">01</div>
       <h3>Cast a chart</h3>
-      <p>Enter a birth date, time and place. The engine computes the chart in your
-        browser — nothing is sent anywhere.</p>
-      <a class="more" href="chart.html">Open the calculator →</a>
-    </div>
-    <div class="card">
-      <h3>Read the knowledge base</h3>
-      <p>Fourteen documents extracted from the book: signs, planets, houses,
-        aspects, the full calculation method, dashas, interpretation, yogas,
-        transits, horary.</p>
-      <a class="more" href="knowledge.html">Browse 14 documents →</a>
-    </div>
-    <div class="card">
-      <h3>Use the API</h3>
-      <p>A FastAPI service with the same engine in Python, plus a command-line
-        client. Clone the repository and run it locally.</p>
-      <a class="more" href="api.html">See the API →</a>
-    </div>
+      <p>Birth data in; wheel, Rasi and Navamsa grids, nine grahas, twelve bhavas,
+        a 120-year dasha timeline and the reading out.</p>
+      <span class="go">Open the calculator →</span>
+    </a>
+    <a class="door" href="panchanga.html">
+      <div class="n">02</div>
+      <h3>Panchanga</h3>
+      <p>Sunrise, sunset and the five limbs for any date and place — tithi, vara,
+        nakshatra, yoga, karana.</p>
+      <span class="go">Today's almanac →</span>
+    </a>
+    <a class="door" href="transits.html">
+      <div class="n">03</div>
+      <h3>Transits</h3>
+      <p>Where the nine grahas are right now, which house that is from your Janma
+        Rasi, and when each next changes sign.</p>
+      <span class="go">Open the transit board →</span>
+    </a>
+    <a class="door" href="knowledge.html">
+      <div class="n">04</div>
+      <h3>Knowledge base</h3>
+      <p>Fifteen documents: signs, planets, houses, aspects, the full calculation
+        method, dashas, interpretation, yogas, transits, horary.</p>
+      <span class="go">Browse the documents →</span>
+    </a>
   </div>
 
-  <h2>Why this one</h2>
-  <p>The astrology software most people meet is a black box: it prints a chart and a
-    verdict, and you cannot tell where either came from. This is the opposite. The
-    rules are written out in the knowledge base, the code implements exactly those
-    rules, and the reading tags each statement with the chapter it came from — so
-    you can look up <span class="kbd">R-MARRIAGE-MARS</span> and see the sentence in
-    chapter IX that produced it.</p>
-
-  <p>It is also checked against something objective. The book works a chart out by
-    hand in chapter II, and this engine reproduces it:</p>
-
+  <h2><span class="num">A</span>Checked against the book</h2>
+  <p>The book works a chart out by hand in chapter II — 2 November 1935, 05:20 local
+    mean time at Madras. The engine reproduces it from first principles:</p>
   <div class="scroll"><table>
-    <thead><tr><th>Graha</th><th>Book (ch. II)</th><th>Engine</th><th>Difference</th></tr></thead>
+    <thead><tr><th>Graha</th><th>Book, ch. II</th><th>Engine</th><th>Difference</th></tr></thead>
     <tbody>
       <tr><td>Sun</td><td>Libra 17°09′</td><td>Libra 17°08′</td><td class="num">1′</td></tr>
       <tr><td>Moon</td><td>Sagittarius 22°35′</td><td>Sagittarius 22°32′</td><td class="num">3′</td></tr>
@@ -86,25 +100,37 @@
       <tr><td>Ascendant</td><td>Libra 8°01′</td><td>Libra 8°15′</td><td class="num">14′</td></tr>
     </tbody>
   </table></div>
-  <p class="muted small">The residual is the book's ayanamsa, which it rounds to 21°30′;
-    the engine computes 21°30′55″ for the same date. The Rasi chart, the dignities,
-    the Mars–Jupiter exchange and the Vimshottari balance of 6y 1m 15d match too.</p>
+  <p class="small muted" style="margin-top:12px">The residual is the book's own ayanamsa,
+    which it rounds to 21°30′; the engine computes 21°30′55″ for that date. The Rasi
+    chart, the dignities, the Mars–Jupiter exchange and the Vimshottari balance of
+    6y 1m 15d match too, and all of it is asserted in the test suite.</p>
 
-  <h2>What it does not do</h2>
-  <p>It implements <em>one 1930s primer</em> and nothing more: no Ashtakavarga, no full
+  <h2><span class="num">B</span>What it will not do</h2>
+  <p>It implements one 1930s primer and nothing else: no Ashtakavarga, no full
     Shadbala, no divisional charts beyond D9, no compatibility matching, no muhurta.
-    Where the scanned book is damaged, the transit tables show a gap rather than a
-    guess. Two of the book's rules — the navamsa count for the number of children, and
-    the Sade Sati third-passage claim — are documented but deliberately not
-    implemented. <a href="about.html">More on the provenance and the limits →</a></p>
+    Two of the book's rules — the navamsa count for the number of children, and the
+    Sade Sati third-passage claim — are documented but deliberately not implemented,
+    because both would be read as a prediction about a real family or a real death.</p>
+  <p class="small muted">Readings are for study and self-reflection. Not medical,
+    financial or legal advice. <a href="about.html">Provenance and limits →</a></p>
 
 </main>
 
-<footer class="site"><div class="inner">
-  Jyotish · engine v1.0.0 · positions from astronomy-engine · Rahu/Ketu are the mean
-  lunar node · strength figures are a simplified positional score, not Shadbala.
-  For study and self-reflection — not medical, financial or legal advice.
+<footer class="site"><div class="shell">
+  <div class="cols">
+    <div>Jyotish · engine v1.0.0 · MIT<br>
+      <span class="mono">positions from astronomy-engine · mean lunar node</span></div>
+    <div class="mono">
+      <a href="chart.html">chart</a> ·
+      <a href="panchanga.html">panchanga</a> ·
+      <a href="transits.html">transits</a> ·
+      <a href="knowledge.html">knowledge</a> ·
+      <a href="api.html">api</a> ·
+      <a href="about.html">provenance</a>
+    </div>
+  </div>
 </div></footer>
 
+<script src="assets/js/nav.js"></script>
 </body>
 </html>

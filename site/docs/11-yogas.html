@@ -5,30 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>11. Yogas — Jyotish</title>
 <meta name="description" content="Papakarthari, Sunapha, Anapha, Durdhura, Kemadruma, Adhiyoga, Rajayoga.">
-<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/app.css">
 </head>
-<body>
-<div class="topbar"><div class="inner">
-  <a class="brand" href="../index.html">Jyoti<span>sh</span></a>
-  <nav>
-    <a href="../index.html">Overview</a>
-    <a href="../chart.html">Cast a chart</a>
-    <a href="../knowledge.html" class="on">Knowledge base</a>
-    <a href="../api.html">API</a>
-    <a href="../about.html">Provenance</a>
-  </nav>
-</div></div>
-<main>
+<body data-page="knowledge" data-root="../">
+
+<main class="shell">
 <div class="docwrap">
-  <aside class="docnav"><div class="grp"><h4>Knowledge base</h4><a href="../knowledge.html">All documents</a></div><div class="grp"><h4>Documents</h4><a href="01-foundations.html">Foundations</a><a href="02-signs.html">The twelve signs</a><a href="03-planets.html">The nine planets</a><a href="04-relationships.html">Relations between planets</a><a href="05-houses.html">The twelve houses</a><a href="06-aspects.html">Aspects</a><a href="07-calculation.html">Casting a horoscope</a><a href="08-strength.html">Strength</a><a href="09-dasha.html">Vimshottari dasha</a><a href="10-interpretation.html">Interpretation</a><a href="11-yogas.html" class="on">Yogas</a><a href="12-transits.html">Transits</a><a href="13-horary.html">Horary</a><a href="14-dasha-results.html">Dasha results</a><a href="source-notes.html">Source notes</a></div><div class="grp"><h4>Elsewhere</h4><a href="../chart.html">Cast a chart</a><a href="../api.html">API</a></div></aside>
+  <aside class="docnav">
+    <div class="grp"><h4>Knowledge base</h4><a href="../knowledge.html">All documents</a></div>
+    <div class="grp"><h4>Documents</h4><a href="01-foundations.html">01 · Foundations</a><a href="02-signs.html">02 · The twelve signs</a><a href="03-planets.html">03 · The nine planets</a><a href="04-relationships.html">04 · Relations between planets</a><a href="05-houses.html">05 · The twelve houses</a><a href="06-aspects.html">06 · Aspects</a><a href="07-calculation.html">07 · Casting a horoscope</a><a href="08-strength.html">08 · Strength</a><a href="09-dasha.html">09 · Vimshottari dasha</a><a href="10-interpretation.html">10 · Interpretation</a><a href="11-yogas.html" class="on">11 · Yogas</a><a href="12-transits.html">12 · Transits</a><a href="13-horary.html">13 · Horary</a><a href="14-dasha-results.html">14 · Dasha results</a><a href="source-notes.html">15 · Source notes</a></div>
+    <div class="grp"><h4>Elsewhere</h4>
+      <a href="../chart.html">Cast a chart</a>
+      <a href="../panchanga.html">Panchanga</a>
+      <a href="../transits.html">Transits</a>
+    </div>
+  </aside>
   <article class="prose">
-    <h1 id="11-yogas">11. Yogas</h1>
-<p><strong>SOURCE:</strong> chapter III, "Yogas" and "Important Yogas".</p>
+    <p class="eyebrow">Document 11 · ch. III</p>
+    <p><strong>SOURCE:</strong> chapter III, "Yogas" and "Important Yogas".</p>
 <blockquote>
 <p>"Yogas are formed when one planet or sign is related to another of the same or
 different kind by way of aspect or conjunction."</p>
 </blockquote>
-<h2 id="the-preliminary-examination">The preliminary examination</h2>
+<h2>The preliminary examination</h2>
 <p>Before any yoga is read, the book requires two checks:</p>
 <blockquote>
 <p>"In forming a general judgment of a horoscope, it is important to examine that
@@ -36,7 +35,7 @@ the Ascendant and its lord are powerful, well associated, and have no malefic
 aspects. A similar examination with regard to the Moon is also essential."</p>
 </blockquote>
 <p>Everything below is subordinate to that.</p>
-<h2 id="papakarthari-and-subhakarthari">Papakarthari and Subhakarthari</h2>
+<h2>Papakarthari and Subhakarthari</h2>
 <blockquote>
 <p>"If the Ascendant is hemmed in between two malefics, such a combination goes
 under the name of Papakarthari Yoga. Benefics on either side will give rise to
@@ -47,7 +46,7 @@ career and the latter will augment the good."</p>
 <p>The book reuses Papakarthari in chapter IX: "If the 7th house is hemmed in
 between two malefics (Papakarthari Yoga), then married life proves burdensome
 and miserable."</p>
-<h2 id="rajayoga">Rajayoga</h2>
+<h2>Rajayoga</h2>
 <blockquote>
 <p>"If the lords of the trines combine with the lords of the angles, with some
 connection with the lord of the 1st house, it leads to a Rajayoga indicating
@@ -64,7 +63,7 @@ high power and authority."</p>
 </ol>
 <p>The engine implements exactly conditions 1 and 2 and reports the Navamsa
 position of each participant without gating on it.</p>
-<h2 id="yogakaraka">Yogakaraka</h2>
+<h2>Yogakaraka</h2>
 <blockquote>
 <p>"Each Ascendant has a key planet, Yogakaraka (planets causing beneficial
 results) and Maraka (death-inflicting planets)."</p>
@@ -80,7 +79,7 @@ table, the engine <strong>derives</strong> the yogakaraka from ownership, which 
 the table encodes, and <strong>derives</strong> the marakas as the lords of the 2nd and 7th
 (the two houses chapter IV names as death-inflicting). If you want the book's
 printed table verbatim, it needs the paper copy.</p>
-<h2 id="the-moon-yogas">The Moon yogas</h2>
+<h2>The Moon yogas</h2>
 <p>These are the most-used yogas in the book, and all four are defined from the
 2nd and 12th from the Moon.</p>
 <table>
@@ -118,19 +117,19 @@ printed table verbatim, it needs the paper copy.</p>
 in a quadrant from the Moon." The engine reports a separate
 <code>Kemadruma-bhanga</code> yoga when the cancellation applies, so the two are never
 confused.</p>
-<h2 id="adhiyoga">Adhiyoga</h2>
+<h2>Adhiyoga</h2>
 <blockquote>
 <p>"Benefics in the 6th, the 7th and the 8th house from the Moon. Results —
 happy, fearless, high position, influential and long-lived."</p>
 </blockquote>
 <p>Note that this uses houses that are otherwise difficult — 6, 7, 8 — which is
 unusual and is exactly why the book calls it out.</p>
-<h2 id="gurumangala">Gurumangala</h2>
+<h2>Gurumangala</h2>
 <p>Chapter VI names it in passing while discussing wealth: "In the Navamsa, Mars
 and Jupiter (Gurumangala Yoga) are in the 2nd from the Moon." The engine detects
 Jupiter and Mars in the same sign and flags it, noting that the book's instance
 is the 2nd from the Moon.</p>
-<h2 id="what-is-missing">What is missing</h2>
+<h2>What is missing</h2>
 <p>The book says: "There are any number of Yogas in relation to the Sun, in
 relation to the Moon, in relation to the Ascendant and in relation to the
 planets and so forth. To include [them all]…" — and then the page turns and the
@@ -149,9 +148,15 @@ production app should add them from a fuller source and keep the same
   </article>
 </div>
 </main>
-<footer class="site"><div class="inner">
-  Jyotish · engine v1.0.0 · extracted from B. V. Raman, <em>Astrology for Beginners</em>.
-  For study and self-reflection — not medical, financial or legal advice.
+
+<footer class="site"><div class="shell">
+  <div class="cols">
+    <div>Jyotish · engine v1.0.0 · MIT<br>
+      <span class="mono">extracted from B. V. Raman, Astrology for Beginners</span></div>
+    <div class="mono">For study and self-reflection — not medical, financial or legal advice.</div>
+  </div>
 </div></footer>
+
+<script src="../assets/js/nav.js"></script>
 </body>
 </html>

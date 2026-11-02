@@ -5,25 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Source notes — Jyotish</title>
 <meta name="description" content="Provenance, the OCR damage catalogued, what was reconstructed and why.">
-<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/app.css">
 </head>
-<body>
-<div class="topbar"><div class="inner">
-  <a class="brand" href="../index.html">Jyoti<span>sh</span></a>
-  <nav>
-    <a href="../index.html">Overview</a>
-    <a href="../chart.html">Cast a chart</a>
-    <a href="../knowledge.html" class="on">Knowledge base</a>
-    <a href="../api.html">API</a>
-    <a href="../about.html">Provenance</a>
-  </nav>
-</div></div>
-<main>
+<body data-page="knowledge" data-root="../">
+
+<main class="shell">
 <div class="docwrap">
-  <aside class="docnav"><div class="grp"><h4>Knowledge base</h4><a href="../knowledge.html">All documents</a></div><div class="grp"><h4>Documents</h4><a href="01-foundations.html">Foundations</a><a href="02-signs.html">The twelve signs</a><a href="03-planets.html">The nine planets</a><a href="04-relationships.html">Relations between planets</a><a href="05-houses.html">The twelve houses</a><a href="06-aspects.html">Aspects</a><a href="07-calculation.html">Casting a horoscope</a><a href="08-strength.html">Strength</a><a href="09-dasha.html">Vimshottari dasha</a><a href="10-interpretation.html">Interpretation</a><a href="11-yogas.html">Yogas</a><a href="12-transits.html">Transits</a><a href="13-horary.html">Horary</a><a href="14-dasha-results.html">Dasha results</a><a href="source-notes.html" class="on">Source notes</a></div><div class="grp"><h4>Elsewhere</h4><a href="../chart.html">Cast a chart</a><a href="../api.html">API</a></div></aside>
+  <aside class="docnav">
+    <div class="grp"><h4>Knowledge base</h4><a href="../knowledge.html">All documents</a></div>
+    <div class="grp"><h4>Documents</h4><a href="01-foundations.html">01 · Foundations</a><a href="02-signs.html">02 · The twelve signs</a><a href="03-planets.html">03 · The nine planets</a><a href="04-relationships.html">04 · Relations between planets</a><a href="05-houses.html">05 · The twelve houses</a><a href="06-aspects.html">06 · Aspects</a><a href="07-calculation.html">07 · Casting a horoscope</a><a href="08-strength.html">08 · Strength</a><a href="09-dasha.html">09 · Vimshottari dasha</a><a href="10-interpretation.html">10 · Interpretation</a><a href="11-yogas.html">11 · Yogas</a><a href="12-transits.html">12 · Transits</a><a href="13-horary.html">13 · Horary</a><a href="14-dasha-results.html">14 · Dasha results</a><a href="source-notes.html" class="on">15 · Source notes</a></div>
+    <div class="grp"><h4>Elsewhere</h4>
+      <a href="../chart.html">Cast a chart</a>
+      <a href="../panchanga.html">Panchanga</a>
+      <a href="../transits.html">Transits</a>
+    </div>
+  </aside>
   <article class="prose">
-    <h1 id="source-notes">Source notes</h1>
-<h2 id="the-source">The source</h2>
+    <p class="eyebrow">Document 15 · —</p>
+    <h2>The source</h2>
 <p><strong>B. V. Raman, <em>Astrology for Beginners</em></strong> — 135 pages, 12 chapters and two
 appendices. Published by UBS Publishers' Distributors Ltd., 5 Ansari Road,
 New Delhi 110 002.</p>
@@ -40,7 +39,7 @@ size:     2.29 MB
 text; pages 1, 6, 8 and 10 are near-empty (the cover plate and blank versos),
 and pages 60–63 are duplicated in the source scan (page 60 repeats as 62, page
 61 as 63).</p>
-<h2 id="what-was-done-to-it">What was done to it</h2>
+<h2>What was done to it</h2>
 <ol>
 <li>The text layer was extracted page by page.</li>
 <li>The running watermark (<code>jyotishbooks.tk</code>, <code>jyoti hb ok;</code>) was stripped.</li>
@@ -53,7 +52,7 @@ and pages 60–63 are duplicated in the source scan (page 60 repeats as 62, page
 </ol>
 <p>Nothing was paraphrased into a claim the book does not make. Where the book is
 wrong or dated, it is marked <strong>CAUTION</strong> rather than silently corrected.</p>
-<h2 id="the-ocr-damage-catalogued">The OCR damage, catalogued</h2>
+<h2>The OCR damage, catalogued</h2>
 <p>This matters because it determines which tables are complete and which are not.</p>
 <table>
 <thead>
@@ -126,7 +125,7 @@ wrong or dated, it is marked <strong>CAUTION</strong> rather than silently corre
 </tr>
 </tbody>
 </table>
-<h2 id="what-is-in-the-book-but-not-in-this-repository">What is in the book but not in this repository</h2>
+<h2>What is in the book but not in this repository</h2>
 <ul>
 <li><strong>Ashtakavarga</strong> — chapter XII refers to Raman's separate book on it. Not
   implemented.</li>
@@ -140,7 +139,7 @@ wrong or dated, it is marked <strong>CAUTION</strong> rather than silently corre
 <li><strong>The Sade Sati first/second/third passage reading</strong> — recorded in
   12-transits.md, not implemented; see the caution there.</li>
 </ul>
-<h2 id="what-is-not-in-the-book-but-is-in-this-repository">What is not in the book but is in this repository</h2>
+<h2>What is not in the book but is in this repository</h2>
 <p>Flagged <strong>STANDARD</strong> wherever it appears:</p>
 <ul>
 <li>the natural friendship rows for Rahu and Ketu;</li>
@@ -155,7 +154,7 @@ wrong or dated, it is marked <strong>CAUTION</strong> rather than silently corre
 <li>the Porphyry/Sripati house cusps;</li>
 <li>the panchanga (the book does not treat it at all).</li>
 </ul>
-<h2 id="copyright">Copyright</h2>
+<h2>Copyright</h2>
 <p>The <em>book</em> is under copyright and this repository does not reproduce it. What
 is here is a structured summary of its rules — the kind of extraction a student
 would make for their own study — together with code that was written from
@@ -164,7 +163,7 @@ scratch. Do not redistribute the scanned PDF with this repository.</p>
 summary of a copyrighted work and is provided for study and commentary; if you
 intend to publish it commercially, take your own view on the permissions you
 need.</p>
-<h2 id="verifying-the-extraction">Verifying the extraction</h2>
+<h2>Verifying the extraction</h2>
 <p>The strongest check available is that the book carries a fully worked example,
 and the engine reproduces it. Chapter II prints the nine grahas and the
 Ascendant for a birth at Madras on 2 November 1935; <code>tests/test_engine.py</code>
@@ -177,9 +176,15 @@ fail. They pass to within a couple of arcminutes.</p>
   </article>
 </div>
 </main>
-<footer class="site"><div class="inner">
-  Jyotish · engine v1.0.0 · extracted from B. V. Raman, <em>Astrology for Beginners</em>.
-  For study and self-reflection — not medical, financial or legal advice.
+
+<footer class="site"><div class="shell">
+  <div class="cols">
+    <div>Jyotish · engine v1.0.0 · MIT<br>
+      <span class="mono">extracted from B. V. Raman, Astrology for Beginners</span></div>
+    <div class="mono">For study and self-reflection — not medical, financial or legal advice.</div>
+  </div>
 </div></footer>
+
+<script src="../assets/js/nav.js"></script>
 </body>
 </html>
