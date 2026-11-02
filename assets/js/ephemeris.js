@@ -147,8 +147,17 @@
     return out;
   }
 
+  /* A single body's apparent tropical longitude -- cheaper than the full set,
+   * for scanning forward to the next sign ingress. */
+  function longitudeOf(planet, jd) {
+    if (planet === "Rahu") return meanNode(jd);
+    if (planet === "Ketu") return JY.mod360(meanNode(jd) + 180.0);
+    return eclipticLongitude(planet, A.MakeTime(jdToDate(jd)))[0];
+  }
+
   JY.ephemeris = {
     tropicalLongitudes,
+    longitudeOf,
     meanNode,
     obliquity,
     siderealTimeHours,
