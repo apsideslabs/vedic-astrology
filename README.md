@@ -145,8 +145,10 @@ gochara transits with Sade Sati state, and the reading.
 ## The live site
 
 `site/` is a plain multi-page static site — `index.html`, `chart.html`,
-`knowledge.html`, `api.html`, `about.html`, plus `docs/*.html` generated from
-the markdown by `tools/build_site.py`. It is published from the `gh-pages`
+`panchanga.html`, `transits.html`, `knowledge.html`, `api.html`, `about.html`,
+plus `docs/*.html` generated from the markdown by `tools/build_site.py`. The
+navigation is a hamburger drawer built once in `site/assets/js/nav.js`, so every
+page shares one source of truth for the chrome. It is published from the `gh-pages`
 branch, which holds the built site only (`.nojekyll` is present so Pages serves
 the files as-is rather than running them through Jekyll).
 
@@ -168,7 +170,7 @@ compare them field by field; they currently agree exactly.
 python3 tools/export_data.py     # regenerate the JS data tables
 python3 tools/build_site.py      # regenerate site/docs/*.html
 node tools/verify_js.js          # JS engine vs Python engine
-node tools/verify_page.js        # render chart.html in a DOM and check it
+node tools/verify_pages.js chart.html   # render a page in a DOM and check it
 ```
 
 ## Layout
@@ -176,11 +178,13 @@ node tools/verify_page.js        # render chart.html in a DOM and check it
 ```
 site/                  the static site (published to GitHub Pages)
   index.html           overview
-  chart.html           the calculator
+  chart.html           the calculator: wheel, grids, tables, dasha timeline, reading
+  panchanga.html       the almanac: five limbs, sunrise and moonrise
+  transits.html        transit board: gochara from the Janma Rasi, next ingresses
   knowledge.html       index of the knowledge base
   docs/                the 15 documents, rendered from markdown
-  assets/js/           the browser engine (port of src/jyotish)
-  assets/css/site.css
+  assets/js/           the browser engine (port of src/jyotish) + nav.js, wheel.js
+  assets/css/app.css   the design system
 docs/                  the extracted knowledge (15 documents, markdown)
 src/jyotish/
   zodiac.py            all data tables: signs, planets, nakshatras, houses
