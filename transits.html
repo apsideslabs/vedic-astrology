@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transits — Jyotish</title>
+<meta name="description" content="Where the nine grahas are right now, which house that is from a chosen Janma Rasi, Sade Sati status, and the next sign ingress for each.">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body data-page="transits" data-root="">
+
+<main class="shell">
+
+  <p class="eyebrow">Workspace · 04</p>
+  <h1>Transit board</h1>
+  <p class="lede">Gochara is read from the radical Moon, not the Ascendant. Choose the
+    Janma Rasi and the board shows where each graha sits relative to it, with the
+    source's stated result.</p>
+
+  <form id="f" class="panel calc" autocomplete="off" style="margin:22px 0 0">
+    <div class="field"><label for="rasi">Janma Rasi</label>
+      <select id="rasi"></select></div>
+    <div class="field"><label for="ayanamsa">Ayanamsa</label>
+      <select id="ayanamsa">
+        <option value="lahiri">Lahiri</option>
+        <option value="raman_397">Raman · book rule</option>
+      </select></div>
+    <div class="submit-cell"><button class="btn" type="submit">Refresh</button></div>
+  </form>
+
+  <div id="err" class="notice hidden" style="margin-top:18px"></div>
+  <div id="out" class="hidden"></div>
+
+</main>
+
+<footer class="site"><div class="shell">
+  <div class="cols">
+    <div>Jyotish · engine v1.0.0 · MIT<br>
+      <span class="mono">gochara table transcribed from chapter XII · gaps left as gaps</span></div>
+    <div class="mono">Transits are never read without the dasha — chapter XII.</div>
+  </div>
+</div></footer>
+
+<script src="assets/js/astronomy.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/core.js"></script>
+<script src="assets/js/ephemeris.js"></script>
+<script src="assets/js/transits.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/transits-page.js"></script>
+</body>
+</html>
