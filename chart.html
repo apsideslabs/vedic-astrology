@@ -27,8 +27,8 @@
     <div class="field"><label for="tz">UT offset, h</label><input id="tz" type="number" step="0.0001" value="5.1722" required></div>
     <div class="field"><label for="ayanamsa">Ayanamsa</label>
       <select id="ayanamsa">
-        <option value="lahiri">Lahiri</option>
-        <option value="raman_397">Raman · book rule</option>
+        <option value="lahiri">Lahiri (modern)</option>
+        <option value="raman_397" selected>Raman (book)</option>
       </select></div>
     <div class="field"><label for="houses">Houses</label>
       <select id="houses">
@@ -43,7 +43,8 @@
     <button class="btn ghost" id="share" type="button" style="padding:8px 12px">Copy link</button>
     <button class="btn ghost" id="json" type="button" style="padding:8px 12px">Download JSON</button>
     <span class="small muted" style="align-self:center">Defaults are the book's own worked
-      example — Madras, 1935, in its own ayanamsa.</span>
+      example — Madras, 1935 — with its ayanamsa rule selected, so the figures match
+      chapter II. Switch to Lahiri for modern practice.</span>
   </div>
 
   <div id="err" class="notice hidden" style="margin-top:18px"></div>
