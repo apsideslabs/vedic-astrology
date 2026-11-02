@@ -64,7 +64,8 @@
     });
 
     const head = el("div", { class: "head" },
-      '<span class="name">Jyoti<em>sh</em></span><span class="ver">v1.0</span>');
+      '<span class="name">Jyoti<em>sh</em></span><span class="ver">v1.0</span>' +
+      '<button class="drawer-close" type="button" aria-label="Close navigation">\u00d7</button>');
     drawer.append(head);
 
     const nav = el("nav");
@@ -110,6 +111,8 @@
     burger.addEventListener("click", () =>
       document.body.classList.contains("nav-open") ? close() : open());
     scrim.addEventListener("click", close);
+    const closeBtn = drawer.querySelector(".drawer-close");
+    if (closeBtn) closeBtn.addEventListener("click", close);
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && document.body.classList.contains("nav-open")) close();
     });
