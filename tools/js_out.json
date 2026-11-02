@@ -1,0 +1,280 @@
+{
+ "ayanamsa": 21.515184,
+ "ascendant_tropical": 209.760826,
+ "lagna_sign": "Libra",
+ "lagna_deg": 8.245642,
+ "planets": {
+  "Sun": {
+   "longitude": 197.1301,
+   "sign": "Libra",
+   "house": 1,
+   "dignity": "debilitated",
+   "nakshatra": "Swati",
+   "pada": 4,
+   "navamsa": "Pisces",
+   "retrograde": false,
+   "score": 32.3
+  },
+  "Moon": {
+   "longitude": 262.5411,
+   "sign": "Sagittarius",
+   "house": 3,
+   "dignity": "friend",
+   "nakshatra": "Purva Ashadha",
+   "pada": 3,
+   "navamsa": "Libra",
+   "retrograde": false,
+   "score": 41.9
+  },
+  "Mars": {
+   "longitude": 251.6419,
+   "sign": "Sagittarius",
+   "house": 3,
+   "dignity": "intimate friend",
+   "nakshatra": "Mula",
+   "pada": 4,
+   "navamsa": "Cancer",
+   "retrograde": false,
+   "score": 48.4
+  },
+  "Mercury": {
+   "longitude": 178.5557,
+   "sign": "Virgo",
+   "house": 12,
+   "dignity": "exalted",
+   "nakshatra": "Chitra",
+   "pada": 2,
+   "navamsa": "Virgo",
+   "retrograde": false,
+   "score": 67.7
+  },
+  "Jupiter": {
+   "longitude": 216.9384,
+   "sign": "Scorpio",
+   "house": 2,
+   "dignity": "intimate friend",
+   "nakshatra": "Anuradha",
+   "pada": 2,
+   "navamsa": "Virgo",
+   "retrograde": false,
+   "score": 54.8
+  },
+  "Venus": {
+   "longitude": 151.6645,
+   "sign": "Virgo",
+   "house": 12,
+   "dignity": "debilitated",
+   "nakshatra": "Uttara Phalguni",
+   "pada": 2,
+   "navamsa": "Capricorn",
+   "retrograde": false,
+   "score": 9.7
+  },
+  "Saturn": {
+   "longitude": 312.0209,
+   "sign": "Aquarius",
+   "house": 5,
+   "dignity": "moolatrikona",
+   "nakshatra": "Shatabhisha",
+   "pada": 2,
+   "navamsa": "Capricorn",
+   "retrograde": true,
+   "score": 67.7
+  },
+  "Rahu": {
+   "longitude": 264.5808,
+   "sign": "Sagittarius",
+   "house": 3,
+   "dignity": "friend",
+   "nakshatra": "Purva Ashadha",
+   "pada": 4,
+   "navamsa": "Scorpio",
+   "retrograde": true,
+   "score": 45.2
+  },
+  "Ketu": {
+   "longitude": 84.5808,
+   "sign": "Gemini",
+   "house": 9,
+   "dignity": "friend",
+   "nakshatra": "Punarvasu",
+   "pada": 2,
+   "navamsa": "Taurus",
+   "retrograde": true,
+   "score": 51.6
+  }
+ },
+ "houses": [
+  {
+   "house": 1,
+   "sign": "Libra",
+   "lord": "Venus",
+   "lord_house": 12,
+   "occupants": [
+    "Sun"
+   ]
+  },
+  {
+   "house": 2,
+   "sign": "Scorpio",
+   "lord": "Mars",
+   "lord_house": 3,
+   "occupants": [
+    "Jupiter"
+   ]
+  },
+  {
+   "house": 3,
+   "sign": "Sagittarius",
+   "lord": "Jupiter",
+   "lord_house": 2,
+   "occupants": [
+    "Moon",
+    "Mars",
+    "Rahu"
+   ]
+  },
+  {
+   "house": 4,
+   "sign": "Capricorn",
+   "lord": "Saturn",
+   "lord_house": 5,
+   "occupants": []
+  },
+  {
+   "house": 5,
+   "sign": "Aquarius",
+   "lord": "Saturn",
+   "lord_house": 5,
+   "occupants": [
+    "Saturn"
+   ]
+  },
+  {
+   "house": 6,
+   "sign": "Pisces",
+   "lord": "Jupiter",
+   "lord_house": 2,
+   "occupants": []
+  },
+  {
+   "house": 7,
+   "sign": "Aries",
+   "lord": "Mars",
+   "lord_house": 3,
+   "occupants": []
+  },
+  {
+   "house": 8,
+   "sign": "Taurus",
+   "lord": "Venus",
+   "lord_house": 12,
+   "occupants": []
+  },
+  {
+   "house": 9,
+   "sign": "Gemini",
+   "lord": "Mercury",
+   "lord_house": 12,
+   "occupants": [
+    "Ketu"
+   ]
+  },
+  {
+   "house": 10,
+   "sign": "Cancer",
+   "lord": "Moon",
+   "lord_house": 3,
+   "occupants": []
+  },
+  {
+   "house": 11,
+   "sign": "Leo",
+   "lord": "Sun",
+   "lord_house": 1,
+   "occupants": []
+  },
+  {
+   "house": 12,
+   "sign": "Virgo",
+   "lord": "Mercury",
+   "lord_house": 12,
+   "occupants": [
+    "Mercury",
+    "Venus"
+   ]
+  }
+ ],
+ "dasha_balance": {
+  "lord": "Venus",
+  "years": 6,
+  "months": 2,
+  "days": 7,
+  "decimal_years": 6.188311,
+  "ends_on": "1942-01-09"
+ },
+ "janma_nakshatra": "Purva Ashadha",
+ "panchanga": {
+  "vara": "Saturday",
+  "tithi": "Shashthi",
+  "paksha": "Shukla",
+  "yoga": "Dhriti",
+  "karana": "Kaulava"
+ },
+ "yogas_present": [
+  "Rajayoga",
+  "Subhakarthari",
+  "Yogakaraka"
+ ],
+ "interpretation_sections": 13,
+ "interpretation_statements": 27,
+ "aspects": 7,
+ "sade_sati": false,
+ "gochara": [
+  [
+   "Sun",
+   11,
+   "earnings"
+  ],
+  [
+   "Moon",
+   8,
+   "trouble and expenses"
+  ],
+  [
+   "Mars",
+   8,
+   "fear and danger"
+  ],
+  [
+   "Mercury",
+   11,
+   "happiness"
+  ],
+  [
+   "Jupiter",
+   9,
+   "access to wealth and risk of losing position and reputation"
+  ],
+  [
+   "Venus",
+   11,
+   "pleasure and profit"
+  ],
+  [
+   "Saturn",
+   4,
+   "expenses, sickness"
+  ],
+  [
+   "Rahu",
+   3,
+   "happiness and good finances"
+  ],
+  [
+   "Ketu",
+   9,
+   "quarrelling, mental worry and loss"
+  ]
+ ]
+}
