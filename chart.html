@@ -4,71 +4,61 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cast a chart — Jyotish</title>
-<meta name="description" content="Cast a Vedic (Nirayana) chart in your browser: sidereal positions, Rasi and Navamsa, Vimshottari dasha, transits and a rule-based reading.">
-<link rel="stylesheet" href="assets/css/site.css">
+<meta name="description" content="Cast a Vedic sidereal chart: Rasi wheel, Navamsa, nine grahas, twelve bhavas, Vimshottari dasha timeline and a rule-based reading.">
+<link rel="stylesheet" href="assets/css/app.css">
 </head>
-<body>
+<body data-page="chart" data-root="">
 
-<div class="topbar"><div class="inner">
-  <a class="brand" href="index.html">Jyoti<span>sh</span></a>
-  <nav>
-    <a href="index.html">Overview</a>
-    <a href="chart.html" class="on">Cast a chart</a>
-    <a href="knowledge.html">Knowledge base</a>
-    <a href="api.html">API</a>
-    <a href="about.html">Provenance</a>
-  </nav>
-</div></div>
+<main class="shell">
 
-<main>
-
+  <p class="eyebrow">Workspace · 02</p>
   <h1>Cast a chart</h1>
-  <p class="lede">The chart is computed in your browser — no request leaves the page.
-    Defaults are set to the book's own worked example; change them to your own birth data.</p>
+  <p class="lede">Everything below is computed in your browser. Nothing is uploaded,
+    and the URL carries the birth data so you can share the chart as a link.</p>
 
-  <form id="f" class="calc" autocomplete="off">
-    <div><label for="name">Name</label><input id="name" placeholder="optional"></div>
-    <div><label for="date">Date (local)</label><input id="date" type="date" required value="1935-11-02"></div>
-    <div><label for="time">Time (local)</label><input id="time" type="time" step="1" required value="05:20:00"></div>
-    <div><label for="preset">Place preset</label>
-      <select id="preset"><option value="">— choose —</option></select>
-    </div>
-    <div><label for="lat">Latitude</label><input id="lat" type="number" step="0.0001" value="13.0000" required></div>
-    <div><label for="lon">Longitude</label><input id="lon" type="number" step="0.0001" value="77.5833" required></div>
-    <div><label for="tz">UT offset (h)</label><input id="tz" type="number" step="0.0001" value="5.1722" required></div>
-    <div><label for="ayanamsa">Ayanamsa</label>
+  <form id="f" class="panel calc" autocomplete="off" style="margin:22px 0 0">
+    <div class="field"><label for="name">Name</label><input id="name" placeholder="optional"></div>
+    <div class="field"><label for="date">Date, local</label><input id="date" type="date" required value="1935-11-02"></div>
+    <div class="field"><label for="time">Time, local</label><input id="time" type="time" step="1" required value="05:20:00"></div>
+    <div class="field"><label for="preset">Place</label>
+      <select id="preset"><option value="">— choose —</option></select></div>
+    <div class="field"><label for="lat">Latitude</label><input id="lat" type="number" step="0.0001" value="13.0000" required></div>
+    <div class="field"><label for="lon">Longitude</label><input id="lon" type="number" step="0.0001" value="77.5833" required></div>
+    <div class="field"><label for="tz">UT offset, h</label><input id="tz" type="number" step="0.0001" value="5.1722" required></div>
+    <div class="field"><label for="ayanamsa">Ayanamsa</label>
       <select id="ayanamsa">
-        <option value="lahiri">Lahiri (Chitrapaksha)</option>
-        <option value="raman_397">Raman / book rule (year−397)</option>
-      </select>
-    </div>
-    <div><label for="houses">Houses</label>
+        <option value="lahiri">Lahiri</option>
+        <option value="raman_397">Raman · book rule</option>
+      </select></div>
+    <div class="field"><label for="houses">Houses</label>
       <select id="houses">
-        <option value="whole_sign">Whole sign (Rasi chakra)</option>
-        <option value="sripati">Sripati / Porphyry</option>
-        <option value="equal">Equal from Ascendant</option>
-      </select>
-    </div>
-    <div class="submit-cell"><button id="go" type="submit">Cast chart</button></div>
+        <option value="whole_sign">Whole sign</option>
+        <option value="sripati">Sripati</option>
+        <option value="equal">Equal</option>
+      </select></div>
+    <div class="submit-cell"><button class="btn" id="go" type="submit">Cast chart</button></div>
   </form>
 
-  <div id="err" class="error hidden"></div>
-
-  <div id="empty" class="muted small">
-    <p>Defaults reproduce the chart in chapter II of the book: 2 November 1935,
-    05:20 local mean time at Madras, latitude 13° N, longitude 5h 10m 20s east
-    (77.5833°), which is a UT offset of 5.1722 hours. The book uses its own
-    ayanamsa rule, so that model is selected.</p>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+    <button class="btn ghost" id="share" type="button" style="padding:8px 12px">Copy link</button>
+    <button class="btn ghost" id="json" type="button" style="padding:8px 12px">Download JSON</button>
+    <span class="small muted" style="align-self:center">Defaults are the book's own worked
+      example — Madras, 1935, in its own ayanamsa.</span>
   </div>
 
+  <div id="err" class="notice hidden" style="margin-top:18px"></div>
+
+  <div id="empty" class="small muted hidden"></div>
   <div id="out" class="hidden"></div>
 
 </main>
 
-<footer class="site"><div class="inner">
-  Engine v1.0.0 · astronomy-engine for positions · mean lunar node for Rahu/Ketu ·
-  strength is a simplified positional score, not Shadbala. For study and
-  self-reflection — not medical, financial or legal advice.
+<footer class="site"><div class="shell">
+  <div class="cols">
+    <div>Jyotish · engine v1.0.0 · MIT<br>
+      <span class="mono">astronomy-engine · mean node · strength is not Shadbala</span></div>
+    <div class="mono">For study and self-reflection — not medical, financial or legal advice.</div>
+  </div>
 </div></footer>
 
 <script src="assets/js/astronomy.js"></script>
@@ -81,6 +71,8 @@
 <script src="assets/js/chart.js"></script>
 <script src="assets/js/transits.js"></script>
 <script src="assets/js/interpret.js"></script>
-<script src="assets/js/ui.js"></script>
+<script src="assets/js/wheel.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/chart-page.js"></script>
 </body>
 </html>

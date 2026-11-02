@@ -4,30 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>7. Casting a horoscope — the full method — Jyotish</title>
-<meta name="description" content="The full method: GMT, sidereal time, houses, ayanamsa, navamsa — with the worked example.">
-<link rel="stylesheet" href="../assets/css/site.css">
+<meta name="description" content="The full method: GMT, sidereal time, houses, ayanamsa, navamsa, with the worked example.">
+<link rel="stylesheet" href="../assets/css/app.css">
 </head>
-<body>
-<div class="topbar"><div class="inner">
-  <a class="brand" href="../index.html">Jyoti<span>sh</span></a>
-  <nav>
-    <a href="../index.html">Overview</a>
-    <a href="../chart.html">Cast a chart</a>
-    <a href="../knowledge.html" class="on">Knowledge base</a>
-    <a href="../api.html">API</a>
-    <a href="../about.html">Provenance</a>
-  </nav>
-</div></div>
-<main>
+<body data-page="knowledge" data-root="../">
+
+<main class="shell">
 <div class="docwrap">
-  <aside class="docnav"><div class="grp"><h4>Knowledge base</h4><a href="../knowledge.html">All documents</a></div><div class="grp"><h4>Documents</h4><a href="01-foundations.html">Foundations</a><a href="02-signs.html">The twelve signs</a><a href="03-planets.html">The nine planets</a><a href="04-relationships.html">Relations between planets</a><a href="05-houses.html">The twelve houses</a><a href="06-aspects.html">Aspects</a><a href="07-calculation.html" class="on">Casting a horoscope</a><a href="08-strength.html">Strength</a><a href="09-dasha.html">Vimshottari dasha</a><a href="10-interpretation.html">Interpretation</a><a href="11-yogas.html">Yogas</a><a href="12-transits.html">Transits</a><a href="13-horary.html">Horary</a><a href="14-dasha-results.html">Dasha results</a><a href="source-notes.html">Source notes</a></div><div class="grp"><h4>Elsewhere</h4><a href="../chart.html">Cast a chart</a><a href="../api.html">API</a></div></aside>
+  <aside class="docnav">
+    <div class="grp"><h4>Knowledge base</h4><a href="../knowledge.html">All documents</a></div>
+    <div class="grp"><h4>Documents</h4><a href="01-foundations.html">01 · Foundations</a><a href="02-signs.html">02 · The twelve signs</a><a href="03-planets.html">03 · The nine planets</a><a href="04-relationships.html">04 · Relations between planets</a><a href="05-houses.html">05 · The twelve houses</a><a href="06-aspects.html">06 · Aspects</a><a href="07-calculation.html" class="on">07 · Casting a horoscope</a><a href="08-strength.html">08 · Strength</a><a href="09-dasha.html">09 · Vimshottari dasha</a><a href="10-interpretation.html">10 · Interpretation</a><a href="11-yogas.html">11 · Yogas</a><a href="12-transits.html">12 · Transits</a><a href="13-horary.html">13 · Horary</a><a href="14-dasha-results.html">14 · Dasha results</a><a href="source-notes.html">15 · Source notes</a></div>
+    <div class="grp"><h4>Elsewhere</h4>
+      <a href="../chart.html">Cast a chart</a>
+      <a href="../panchanga.html">Panchanga</a>
+      <a href="../transits.html">Transits</a>
+    </div>
+  </aside>
   <article class="prose">
-    <h1 id="7-casting-a-horoscope-the-full-method">7. Casting a horoscope — the full method</h1>
-<p><strong>SOURCE:</strong> chapter II, "Casting the Horoscope"; Appendix I, "Ayanamsa
+    <p class="eyebrow">Document 07 · ch. II, App. I–II</p>
+    <p><strong>SOURCE:</strong> chapter II, "Casting the Horoscope"; Appendix I, "Ayanamsa
 Determination"; Appendix II, the Nirayana Tables of Houses.</p>
 <p>This is the chapter that makes the book usable, and it is reproduced here in
 full because it is the specification the engine implements.</p>
-<h2 id="the-two-zodiacs">The two zodiacs</h2>
+<h2>The two zodiacs</h2>
 <blockquote>
 <p>"There is a difference of about 22 degrees between the Western and the Hindu
 zodiacs. That is, according to the Hindu horoscope if a planet is in 20
@@ -50,7 +49,7 @@ needed for our purpose, is obtained."</p>
 <p>The book holds that "the greatest Hindu astrological writers referred to the
 fixed zodiac for predictions, and this fact is borne by experience"
 (Appendix I).</p>
-<h2 id="step-1-convert-local-mean-time-to-greenwich-mean-time">Step 1 — convert local mean time to Greenwich mean time</h2>
+<h2>Step 1 — convert local mean time to Greenwich mean time</h2>
 <blockquote>
 <p>"For births west of Greenwich, add four minutes for every degree of
 longitude to the Local Mean Time of birth. For births east of Greenwich,
@@ -66,7 +65,7 @@ East and latitude 13° North.</p>
 Longitude of place (east)  5h 10m 20s   (subtract)
 Greenwich Mean Time        0h 09m 40s  = about 0h 10m a.m. GMT
 </code></pre>
-<h2 id="step-2-planetary-longitudes-at-birth">Step 2 — planetary longitudes at birth</h2>
+<h2>Step 2 — planetary longitudes at birth</h2>
 <p>Given a modern ephemeris tabulating longitudes at Greenwich Mean Noon:</p>
 <blockquote>
 <p>"If birth is a.m. or before noon, the difference of longitude between the
@@ -155,7 +154,7 @@ book.)</p>
 <p><strong>Verification:</strong> the engine reproduces this table to within a couple of
 arcminutes from first principles — see <code>tests/test_engine.py::test_book_example_positions</code>.
 The residual comes from the book rounding its ayanamsa to 21° 30′ exactly.</p>
-<h2 id="step-3-sidereal-time-and-the-ascendant">Step 3 — sidereal time and the Ascendant</h2>
+<h2>Step 3 — sidereal time and the Ascendant</h2>
 <blockquote>
 <p>"Find out the Sidereal Time at G.M.N. ... This is given for 12 noon
 Greenwich Time. Add to this the Local [time elapsed] after the local noon,
@@ -183,7 +182,7 @@ latitude (Madras, 13° N) at that sidereal time gives the cusps:</p>
 12th  Virgo 30°           3rd              Sagittarius 28°
 </code></pre>
 <p>The remaining six cusps are found by adding 180°.</p>
-<h2 id="step-4-deduct-the-ayanamsa-to-get-bhavamadhyas">Step 4 — deduct the ayanamsa to get bhavamadhyas</h2>
+<h2>Step 4 — deduct the ayanamsa to get bhavamadhyas</h2>
 <blockquote>
 <p>"Cusp of the Western House less Ayanamsa will give the Bhavamadhya
 (mid-point) of the house of the Hindus."</p>
@@ -197,9 +196,9 @@ chart is 8° 01′ Libra (sidereal), but the <strong>Rasi chart</strong> — the
 ordinary purposes of prediction" — simply puts Libra as the 1st house, with
 the Sun in it. The engine reports both: <code>lagna.longitude</code> (sidereal degree)
 and <code>lagna.sign</code> (the sign that becomes the 1st bhava).</p>
-<h2 id="the-ayanamsa-itself">The ayanamsa itself</h2>
+<h2>The ayanamsa itself</h2>
 <p><strong>SOURCE:</strong> Appendix I. Two methods are given.</p>
-<h3 id="method-1-the-books-arithmetic-rule">Method 1 — the book's arithmetic rule</h3>
+<h3>Method 1 — the book's arithmetic rule</h3>
 <pre><code>1) Subtract 397 from the year of birth (A.D.)
 2) Multiply the remainder by 50 1/3 seconds
 3) Reduce the product into degrees, minutes and seconds
@@ -243,7 +242,7 @@ moves every cusp and every planet. The book's own worked example is internally
 consistent because it uses its own rule throughout — which is why the engine
 keeps <code>raman_397</code> as a selectable model: without it you cannot reproduce the
 book's chart.</p>
-<h3 id="method-2-the-modern-one-used-by-default">Method 2 — the modern one, used by default</h3>
+<h3>Method 2 — the modern one, used by default</h3>
 <p>The <strong>Lahiri (Chitrapaksha)</strong> ayanamsa is the value tabulated in the <em>Indian
 Astronomical Ephemeris</em> and used by essentially all Indian astrology software.
 Its definition is the tropical longitude of Spica (Chitra) minus 180°: the
@@ -263,7 +262,7 @@ software, use the Swiss Ephemeris, which implements Lahiri natively along with
 about forty other ayanamsas. <code>ephemeris.py</code> is deliberately a thin layer: it
 returns <code>{planet: (longitude, latitude, speed)}</code> and nothing else, so a
 <code>pyswisseph</code> backend is a drop-in replacement.</p>
-<h2 id="step-5-the-navamsa">Step 5 — the Navamsa</h2>
+<h2>Step 5 — the Navamsa</h2>
 <p><strong>SOURCE:</strong> chapter II.</p>
 <blockquote>
 <p>"When a sign is divided into 9 equal parts each part measuring 3° 20′ is
@@ -294,7 +293,7 @@ zodiacal diagram."</p>
 </blockquote>
 <p>The engine computes the navamsa sign of every planet, of the Ascendant, and
 draws the D9 diagram alongside the Rasi.</p>
-<h2 id="step-6-what-the-finished-chart-looks-like">Step 6 — what the finished chart looks like</h2>
+<h2>Step 6 — what the finished chart looks like</h2>
 <p>The book's own Rasi diagram, read out in its own words:</p>
 <blockquote>
 <p>"Lagna is Libra. Sun is in the 1st house; Jupiter in the 2nd; Moon, Mars and
@@ -305,7 +304,7 @@ his own house; Mars and Jupiter have exchanged places."</p>
 <p>Every one of those statements is asserted in <code>tests/test_engine.py</code>
 (<code>test_book_chart_structure</code>, <code>test_book_chart_dignities</code>,
 <code>test_mars_jupiter_exchange</code>). The engine reproduces the whole chart.</p>
-<h2 id="the-short-route">The short route</h2>
+<h2>The short route</h2>
 <p><strong>SOURCE:</strong> Appendix II. Raman's <em>Nirayana Tables of Houses</em> (with R. V.
 Vaidya) tabulate the sidereal bhavamadhyas directly, so that no ayanamsa
 subtraction is needed:</p>
@@ -319,9 +318,15 @@ book works its example through this route as well and reaches
   </article>
 </div>
 </main>
-<footer class="site"><div class="inner">
-  Jyotish · engine v1.0.0 · extracted from B. V. Raman, <em>Astrology for Beginners</em>.
-  For study and self-reflection — not medical, financial or legal advice.
+
+<footer class="site"><div class="shell">
+  <div class="cols">
+    <div>Jyotish · engine v1.0.0 · MIT<br>
+      <span class="mono">extracted from B. V. Raman, Astrology for Beginners</span></div>
+    <div class="mono">For study and self-reflection — not medical, financial or legal advice.</div>
+  </div>
 </div></footer>
+
+<script src="../assets/js/nav.js"></script>
 </body>
 </html>

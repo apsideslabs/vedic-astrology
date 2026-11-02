@@ -5,26 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>3. The nine planets (Grahas) — Jyotish</title>
 <meta name="description" content="Grahas, karakas, exaltation, moolatrikona, the ten avasthas.">
-<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/app.css">
 </head>
-<body>
-<div class="topbar"><div class="inner">
-  <a class="brand" href="../index.html">Jyoti<span>sh</span></a>
-  <nav>
-    <a href="../index.html">Overview</a>
-    <a href="../chart.html">Cast a chart</a>
-    <a href="../knowledge.html" class="on">Knowledge base</a>
-    <a href="../api.html">API</a>
-    <a href="../about.html">Provenance</a>
-  </nav>
-</div></div>
-<main>
+<body data-page="knowledge" data-root="../">
+
+<main class="shell">
 <div class="docwrap">
-  <aside class="docnav"><div class="grp"><h4>Knowledge base</h4><a href="../knowledge.html">All documents</a></div><div class="grp"><h4>Documents</h4><a href="01-foundations.html">Foundations</a><a href="02-signs.html">The twelve signs</a><a href="03-planets.html" class="on">The nine planets</a><a href="04-relationships.html">Relations between planets</a><a href="05-houses.html">The twelve houses</a><a href="06-aspects.html">Aspects</a><a href="07-calculation.html">Casting a horoscope</a><a href="08-strength.html">Strength</a><a href="09-dasha.html">Vimshottari dasha</a><a href="10-interpretation.html">Interpretation</a><a href="11-yogas.html">Yogas</a><a href="12-transits.html">Transits</a><a href="13-horary.html">Horary</a><a href="14-dasha-results.html">Dasha results</a><a href="source-notes.html">Source notes</a></div><div class="grp"><h4>Elsewhere</h4><a href="../chart.html">Cast a chart</a><a href="../api.html">API</a></div></aside>
+  <aside class="docnav">
+    <div class="grp"><h4>Knowledge base</h4><a href="../knowledge.html">All documents</a></div>
+    <div class="grp"><h4>Documents</h4><a href="01-foundations.html">01 · Foundations</a><a href="02-signs.html">02 · The twelve signs</a><a href="03-planets.html" class="on">03 · The nine planets</a><a href="04-relationships.html">04 · Relations between planets</a><a href="05-houses.html">05 · The twelve houses</a><a href="06-aspects.html">06 · Aspects</a><a href="07-calculation.html">07 · Casting a horoscope</a><a href="08-strength.html">08 · Strength</a><a href="09-dasha.html">09 · Vimshottari dasha</a><a href="10-interpretation.html">10 · Interpretation</a><a href="11-yogas.html">11 · Yogas</a><a href="12-transits.html">12 · Transits</a><a href="13-horary.html">13 · Horary</a><a href="14-dasha-results.html">14 · Dasha results</a><a href="source-notes.html">15 · Source notes</a></div>
+    <div class="grp"><h4>Elsewhere</h4>
+      <a href="../chart.html">Cast a chart</a>
+      <a href="../panchanga.html">Panchanga</a>
+      <a href="../transits.html">Transits</a>
+    </div>
+  </aside>
   <article class="prose">
-    <h1 id="3-the-nine-planets-grahas">3. The nine planets (Grahas)</h1>
-<p><strong>SOURCE:</strong> chapter I, "The Planets" and "Planetary Nature and Indications".</p>
-<h2 id="what-counts-as-a-planet">What counts as a "planet"</h2>
+    <p class="eyebrow">Document 03 · ch. I</p>
+    <p><strong>SOURCE:</strong> chapter I, "The Planets" and "Planetary Nature and Indications".</p>
+<h2>What counts as a "planet"</h2>
 <p>Hindu astrology takes cognizance of <strong>nine grahas</strong>. The book is explicit that
 the word is used "in the sense of a celestial body or point which has the
 property of attraction":</p>
@@ -92,7 +91,7 @@ human affairs".</p>
 orbit, which is exactly what the engine computes. The engine uses the <strong>mean</strong>
 node, which is what Raman's own ephemeris tabulates; the true node differs by
 up to about 1°40′.</p>
-<h2 id="nature-and-indications">Nature and indications</h2>
+<h2>Nature and indications</h2>
 <p>Transcribed from the book, condensed but not altered:</p>
 <p><strong>The Sun</strong> — masculine, malefic, copper colour, philosophical tendency,
 royal, ego, father, sons, patrimony, self-reliance, political power, windy and
@@ -123,7 +122,7 @@ also become capable of doing harm."</p>
 when well associated; the Moon is benefic when waxing and malefic when waning.
 The engine keeps them in the benefic list (they are benefics by nature) but
 the reading rules test for affliction separately.</p>
-<h2 id="karakas-what-each-planet-signifies">Karakas — what each planet signifies</h2>
+<h2>Karakas — what each planet signifies</h2>
 <p><strong>SOURCE:</strong> chapter I, "Karakas".</p>
 <table>
 <thead>
@@ -171,7 +170,7 @@ the reading rules test for affliction separately.</p>
 </tr>
 </tbody>
 </table>
-<h2 id="exaltation">Exaltation</h2>
+<h2>Exaltation</h2>
 <p><strong>SOURCE:</strong> chapter I, "Exaltation". A planet is exalted in a particular sign;
 within that sign one degree is its point of <strong>deep exaltation</strong>. The power to
 do good when exalted is greater than when in its own sign.</p>
@@ -233,14 +232,14 @@ do good when exalted is greater than when in its own sign.</p>
 <li><strong>Saturn:</strong> skilful, charitable, opulence, long life, loving husband.</li>
 <li><strong>Rahu or Ketu:</strong> wealthy.</li>
 </ul>
-<h2 id="debilitation">Debilitation</h2>
+<h2>Debilitation</h2>
 <p><strong>SOURCE:</strong> chapter I. "The debilitation or depression points are found by
 adding 180° to the maximum points given above." While in a state of fall,
 planets give results <strong>contrary</strong> to those when in exaltation.</p>
 <p>So: Sun debilitated in Libra 10°, Moon in Scorpio 3°, Mars in Cancer 28°,
 Mercury in Pisces 15°, Jupiter in Capricorn 5°, Venus in Virgo 27°, Saturn in
 Aries 20°, Rahu in Scorpio 20°, Ketu in Taurus 20°.</p>
-<h2 id="moolatrikona">Moolatrikona</h2>
+<h2>Moolatrikona</h2>
 <p><strong>SOURCE:</strong> chapter I, "Moolathrikonas". A planet's own special division of
 its own sign, stronger than mere ownership.</p>
 <table>
@@ -286,7 +285,7 @@ its own sign, stronger than mere ownership.</p>
 want the other convention. Mars's upper bound is printed as "0° to it" in the
 scan and is reconstructed as 12°, which is the only value that makes sense of
 the standard table.</p>
-<h2 id="ownership">Ownership</h2>
+<h2>Ownership</h2>
 <p><strong>SOURCE:</strong> chapter I, "Ownership".</p>
 <table>
 <thead>
@@ -327,7 +326,7 @@ the standard table.</p>
 </tbody>
 </table>
 <p>"A planet situated in its own sign is rendered powerful to do good."</p>
-<h2 id="the-ten-avasthas-states">The ten Avasthas (states)</h2>
+<h2>The ten Avasthas (states)</h2>
 <p><strong>SOURCE:</strong> chapter I, "Planetary Avasthas" — "Avasthas are states of
 existence which planets get when occupying certain positions. They are 10 in
 number."</p>
@@ -400,12 +399,12 @@ matches the book's treatment of Chestabala in chapter III
 <p>The engine implements Deeptha, Swastha, Muditha, Deena, Pikala and Khala
 directly through its dignity ladder; Santha, Peedya, Sakta and Bheetha are
 not yet wired into the reading.</p>
-<h2 id="combustion">Combustion</h2>
+<h2>Combustion</h2>
 <p><strong>SOURCE:</strong> chapter I mentions the phenomenon only — "planets very near the
 Sun become combust". <strong>STANDARD:</strong> the orbs used by the engine are the
 conventional ones: Moon 12°, Mars 17°, Mercury 14° (12° when retrograde),
 Jupiter 11°, Venus 10° (8° retrograde), Saturn 15°.</p>
-<h2 id="planetary-days-and-colours">Planetary days and colours</h2>
+<h2>Planetary days and colours</h2>
 <p>The book uses colour and weekday as signifiers in the dasha and transit
 chapters (Saturn produces death by chills; Mars by fevers and haemorrhage)
 rather than as a systematic table, so they are recorded above with each
@@ -413,9 +412,15 @@ planet's nature and not tabulated separately.</p>
   </article>
 </div>
 </main>
-<footer class="site"><div class="inner">
-  Jyotish · engine v1.0.0 · extracted from B. V. Raman, <em>Astrology for Beginners</em>.
-  For study and self-reflection — not medical, financial or legal advice.
+
+<footer class="site"><div class="shell">
+  <div class="cols">
+    <div>Jyotish · engine v1.0.0 · MIT<br>
+      <span class="mono">extracted from B. V. Raman, Astrology for Beginners</span></div>
+    <div class="mono">For study and self-reflection — not medical, financial or legal advice.</div>
+  </div>
 </div></footer>
+
+<script src="../assets/js/nav.js"></script>
 </body>
 </html>

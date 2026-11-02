@@ -5,26 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>8. Strength — Jyotish</title>
 <meta name="description" content="The six Shadbalas, the judgement rules, and what this engine actually computes.">
-<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/app.css">
 </head>
-<body>
-<div class="topbar"><div class="inner">
-  <a class="brand" href="../index.html">Jyoti<span>sh</span></a>
-  <nav>
-    <a href="../index.html">Overview</a>
-    <a href="../chart.html">Cast a chart</a>
-    <a href="../knowledge.html" class="on">Knowledge base</a>
-    <a href="../api.html">API</a>
-    <a href="../about.html">Provenance</a>
-  </nav>
-</div></div>
-<main>
+<body data-page="knowledge" data-root="../">
+
+<main class="shell">
 <div class="docwrap">
-  <aside class="docnav"><div class="grp"><h4>Knowledge base</h4><a href="../knowledge.html">All documents</a></div><div class="grp"><h4>Documents</h4><a href="01-foundations.html">Foundations</a><a href="02-signs.html">The twelve signs</a><a href="03-planets.html">The nine planets</a><a href="04-relationships.html">Relations between planets</a><a href="05-houses.html">The twelve houses</a><a href="06-aspects.html">Aspects</a><a href="07-calculation.html">Casting a horoscope</a><a href="08-strength.html" class="on">Strength</a><a href="09-dasha.html">Vimshottari dasha</a><a href="10-interpretation.html">Interpretation</a><a href="11-yogas.html">Yogas</a><a href="12-transits.html">Transits</a><a href="13-horary.html">Horary</a><a href="14-dasha-results.html">Dasha results</a><a href="source-notes.html">Source notes</a></div><div class="grp"><h4>Elsewhere</h4><a href="../chart.html">Cast a chart</a><a href="../api.html">API</a></div></aside>
+  <aside class="docnav">
+    <div class="grp"><h4>Knowledge base</h4><a href="../knowledge.html">All documents</a></div>
+    <div class="grp"><h4>Documents</h4><a href="01-foundations.html">01 · Foundations</a><a href="02-signs.html">02 · The twelve signs</a><a href="03-planets.html">03 · The nine planets</a><a href="04-relationships.html">04 · Relations between planets</a><a href="05-houses.html">05 · The twelve houses</a><a href="06-aspects.html">06 · Aspects</a><a href="07-calculation.html">07 · Casting a horoscope</a><a href="08-strength.html" class="on">08 · Strength</a><a href="09-dasha.html">09 · Vimshottari dasha</a><a href="10-interpretation.html">10 · Interpretation</a><a href="11-yogas.html">11 · Yogas</a><a href="12-transits.html">12 · Transits</a><a href="13-horary.html">13 · Horary</a><a href="14-dasha-results.html">14 · Dasha results</a><a href="source-notes.html">15 · Source notes</a></div>
+    <div class="grp"><h4>Elsewhere</h4>
+      <a href="../chart.html">Cast a chart</a>
+      <a href="../panchanga.html">Panchanga</a>
+      <a href="../transits.html">Transits</a>
+    </div>
+  </aside>
   <article class="prose">
-    <h1 id="8-strength">8. Strength</h1>
-<p><strong>SOURCE:</strong> chapter III, "Hints on Judgment".</p>
-<h2 id="the-six-shadbalas">The six Shadbalas</h2>
+    <p class="eyebrow">Document 08 · ch. III</p>
+    <p><strong>SOURCE:</strong> chapter III, "Hints on Judgment".</p>
+<h2>The six Shadbalas</h2>
 <blockquote>
 <p>"Six sources of strength and weakness (Shadbalas) should be determined for
 each planet in order to evaluate the worth of a horoscope properly. For the
@@ -33,7 +32,7 @@ of strength."</p>
 </blockquote>
 <p>The book then names them and stops, deferring the measurement to its companion
 volume <em>Graha and Bhava Balas</em>. They are:</p>
-<h3 id="1-sthanabala-positional-strength">1. Sthanabala — positional strength</h3>
+<h3>1. Sthanabala — positional strength</h3>
 <blockquote>
 <p>"The strength acquired due to residence in friendly, own and exaltation
 signs not only in the zodiacal diagram (Rasi Chakra) but also in the Navamsa
@@ -42,7 +41,7 @@ and other subdivisions."</p>
 <p>So the same dignity test is run twice: once on the Rasi sign, once on the
 Navamsa sign, and a planet dignified in both (vargottama, when the two signs
 coincide) is strongest.</p>
-<h3 id="2-digbala-directional-strength">2. Digbala — directional strength</h3>
+<h3>2. Digbala — directional strength</h3>
 <blockquote>
 <p>"Jupiter and Mercury are powerful in the Ascendant. The Sun and Mars get
 directional strength in the 10th house. Saturn is powerful in the 7th house,
@@ -74,7 +73,7 @@ and Venus and the Moon become strong in the 4th house."</p>
 </tr>
 </tbody>
 </table>
-<h3 id="3-chestabala-motional-strength">3. Chestabala — motional strength</h3>
+<h3>3. Chestabala — motional strength</h3>
 <blockquote>
 <p>"The Sun and the Moon in Capricorn, Aquarius, Pisces, Aries, Taurus and
 Gemini constituting Uttrayana or summer solstice and Mars, Mercury, Jupiter,
@@ -90,7 +89,7 @@ Chestabala."</p>
 <p><strong>Note:</strong> retrogression <em>adds</em> strength here. That is consistent with the
 Avastha "Sakta or retrogression: courage, wealth, reputation" in chapter I, and
 it is the opposite of the modern Western instinct.</p>
-<h3 id="4-kalabala-temporal-strength">4. Kalabala — temporal strength</h3>
+<h3>4. Kalabala — temporal strength</h3>
 <blockquote>
 <p>"The Moon, Mars and Saturn are powerful during the night. The Sun, Jupiter
 and Venus are powerful during the day. Mercury is always powerful. Malefics
@@ -134,7 +133,7 @@ powerful."</p>
 </table>
 <p>The lunar-month half is the same fact as "the Moon is benefic when waxing,
 malefic when waning" from chapter I, seen from the strength side.</p>
-<h3 id="5-drukbala-aspect-strength">5. Drukbala — aspect strength</h3>
+<h3>5. Drukbala — aspect strength</h3>
 <blockquote>
 <p>"Aspects of benefics give full Drukbala while aspects of malefics take away
 Drukbala."</p>
@@ -142,7 +141,7 @@ Drukbala."</p>
 <p>The engine already records every aspect with its sign distance and sight
 fraction; Drukbala is the sum over incoming aspects, signed by the aspecting
 planet's nature.</p>
-<h3 id="6-saisargikabala-natural-strength">6. Saisargikabala — natural strength</h3>
+<h3>6. Saisargikabala — natural strength</h3>
 <blockquote>
 <p>"Each planet is supposed to produce a particular measure of strength
 permanently irrespective of its position. The Sun, Moon, Venus, Jupiter,
@@ -150,7 +149,7 @@ Mercury, Mars and Saturn are strong in descending order. The Sun is the most
 powerful and Saturn is the least powerful."</p>
 </blockquote>
 <p>So the fixed order is Sun &gt; Moon &gt; Venus &gt; Jupiter &gt; Mercury &gt; Mars &gt; Saturn.</p>
-<h2 id="what-this-engine-actually-computes">What this engine actually computes</h2>
+<h2>What this engine actually computes</h2>
 <p><strong>This is important and is stated plainly in the API too.</strong> The engine computes
 a <strong>simplified positional strength</strong>, not Shadbala. It is an additive score
 with every component reported separately, so a reading can be audited:</p>
@@ -197,7 +196,7 @@ implemented: the full Sthanabala sub-divisions (Saptavargaja etc.), the
 Kala/Digbala hour-and-minute measures, Drukbala as a numeric sum, and
 Saisargikabala's calibrated units. Anyone who needs Shadbala should use a
 dedicated library, or port <em>Graha and Bhava Balas</em>.</p>
-<h2 id="the-judgement-rules-of-chapter-iii">The judgement rules of chapter III</h2>
+<h2>The judgement rules of chapter III</h2>
 <p>These are the rules the book gives for actually using strength, and they are
 more valuable than the Shadbala list:</p>
 <blockquote>
@@ -227,7 +226,7 @@ trine escapes the dosha and becomes the best planet in the chart. The textbook
 example is Saturn for Taurus (9th and 10th) and for Libra (4th and 5th); the
 engine derives yogakarakas from ownership rather than from a table, so the
 answer falls out of the Ascendant.</p>
-<h2 id="the-books-caution-about-judgement-itself">The book's caution about judgement itself</h2>
+<h2>The book's caution about judgement itself</h2>
 <blockquote>
 <p>"The judgment of a horoscope forms the most important and difficult task of
 an astrologer. It must be borne in mind that, at the outset no hard and fast
@@ -241,9 +240,15 @@ book's own instruction.</p>
   </article>
 </div>
 </main>
-<footer class="site"><div class="inner">
-  Jyotish · engine v1.0.0 · extracted from B. V. Raman, <em>Astrology for Beginners</em>.
-  For study and self-reflection — not medical, financial or legal advice.
+
+<footer class="site"><div class="shell">
+  <div class="cols">
+    <div>Jyotish · engine v1.0.0 · MIT<br>
+      <span class="mono">extracted from B. V. Raman, Astrology for Beginners</span></div>
+    <div class="mono">For study and self-reflection — not medical, financial or legal advice.</div>
+  </div>
 </div></footer>
+
+<script src="../assets/js/nav.js"></script>
 </body>
 </html>

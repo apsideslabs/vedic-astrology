@@ -5,27 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>2. The twelve signs (Rasis) — Jyotish</title>
 <meta name="description" content="Rasis, their natures, elements and the organs they govern.">
-<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/app.css">
 </head>
-<body>
-<div class="topbar"><div class="inner">
-  <a class="brand" href="../index.html">Jyoti<span>sh</span></a>
-  <nav>
-    <a href="../index.html">Overview</a>
-    <a href="../chart.html">Cast a chart</a>
-    <a href="../knowledge.html" class="on">Knowledge base</a>
-    <a href="../api.html">API</a>
-    <a href="../about.html">Provenance</a>
-  </nav>
-</div></div>
-<main>
+<body data-page="knowledge" data-root="../">
+
+<main class="shell">
 <div class="docwrap">
-  <aside class="docnav"><div class="grp"><h4>Knowledge base</h4><a href="../knowledge.html">All documents</a></div><div class="grp"><h4>Documents</h4><a href="01-foundations.html">Foundations</a><a href="02-signs.html" class="on">The twelve signs</a><a href="03-planets.html">The nine planets</a><a href="04-relationships.html">Relations between planets</a><a href="05-houses.html">The twelve houses</a><a href="06-aspects.html">Aspects</a><a href="07-calculation.html">Casting a horoscope</a><a href="08-strength.html">Strength</a><a href="09-dasha.html">Vimshottari dasha</a><a href="10-interpretation.html">Interpretation</a><a href="11-yogas.html">Yogas</a><a href="12-transits.html">Transits</a><a href="13-horary.html">Horary</a><a href="14-dasha-results.html">Dasha results</a><a href="source-notes.html">Source notes</a></div><div class="grp"><h4>Elsewhere</h4><a href="../chart.html">Cast a chart</a><a href="../api.html">API</a></div></aside>
+  <aside class="docnav">
+    <div class="grp"><h4>Knowledge base</h4><a href="../knowledge.html">All documents</a></div>
+    <div class="grp"><h4>Documents</h4><a href="01-foundations.html">01 · Foundations</a><a href="02-signs.html" class="on">02 · The twelve signs</a><a href="03-planets.html">03 · The nine planets</a><a href="04-relationships.html">04 · Relations between planets</a><a href="05-houses.html">05 · The twelve houses</a><a href="06-aspects.html">06 · Aspects</a><a href="07-calculation.html">07 · Casting a horoscope</a><a href="08-strength.html">08 · Strength</a><a href="09-dasha.html">09 · Vimshottari dasha</a><a href="10-interpretation.html">10 · Interpretation</a><a href="11-yogas.html">11 · Yogas</a><a href="12-transits.html">12 · Transits</a><a href="13-horary.html">13 · Horary</a><a href="14-dasha-results.html">14 · Dasha results</a><a href="source-notes.html">15 · Source notes</a></div>
+    <div class="grp"><h4>Elsewhere</h4>
+      <a href="../chart.html">Cast a chart</a>
+      <a href="../panchanga.html">Panchanga</a>
+      <a href="../transits.html">Transits</a>
+    </div>
+  </aside>
   <article class="prose">
-    <h1 id="2-the-twelve-signs-rasis">2. The twelve signs (Rasis)</h1>
-<p><strong>SOURCE:</strong> chapter I, "The Signs of the Zodiac" and "Peculiarities of the
+    <p class="eyebrow">Document 02 · ch. I, V</p>
+    <p><strong>SOURCE:</strong> chapter I, "The Signs of the Zodiac" and "Peculiarities of the
 Signs"; chapter V for the body parts.</p>
-<h2 id="the-signs-and-their-extents">The signs and their extents</h2>
+<h2>The signs and their extents</h2>
 <table>
 <thead>
 <tr>
@@ -110,7 +109,7 @@ Signs"; chapter V for the body parts.</p>
 </tr>
 </tbody>
 </table>
-<h2 id="peculiarities-of-the-signs">Peculiarities of the signs</h2>
+<h2>Peculiarities of the signs</h2>
 <p>The book lists, for each sign, eight qualities: modality (movable / fixed /
 common), parity (odd / even), gender, temperament (cruel / mild), element,
 fruitfulness where it states one, ascension (short / long), and the part by
@@ -270,7 +269,7 @@ elsewhere.</p>
 <p>Note that the book's ascension list differs from the textbook "signs of short
 ascension" (Capricorn–Gemini) because it is describing the <em>rising part</em> in
 the Indian context; it is reproduced, not corrected.</p>
-<h2 id="the-elements-used-for-livelihood">The elements (used for livelihood)</h2>
+<h2>The elements (used for livelihood)</h2>
 <p><strong>SOURCE:</strong> chapter VII.</p>
 <ul>
 <li><strong>Fiery:</strong> Aries, Leo, Sagittarius</li>
@@ -278,7 +277,7 @@ the Indian context; it is reproduced, not corrected.</p>
 <li><strong>Airy:</strong> Gemini, Libra, Aquarius</li>
 <li><strong>Watery:</strong> Cancer, Scorpio, Pisces</li>
 </ul>
-<h2 id="signs-and-the-body">Signs and the body</h2>
+<h2>Signs and the body</h2>
 <p><strong>SOURCE:</strong> chapter V — "the twelve signs of the zodiac commencing from Aries
 in general and from the Ascendant in particular govern the twelve important
 organs of the human body".</p>
@@ -345,7 +344,7 @@ general, and read from the Ascendant for the native in particular.</p>
 <p><strong>STANDARD:</strong> the common Kalapurusha list assigns Gemini to the arms and
 shoulders, Cancer to the chest, and Aquarius to the calves. The engine uses
 the book's list, and <code>zodiac.SIGN_BODY_PART</code> is the single place to change it.</p>
-<h2 id="how-the-sign-qualities-are-used">How the sign qualities are used</h2>
+<h2>How the sign qualities are used</h2>
 <p>The book uses each of these qualities as a filter on a rule, never on its own:</p>
 <ul>
 <li><strong>Modality</strong> decides temperament and timing. Movable signs indicate
@@ -372,9 +371,15 @@ the book's list, and <code>zodiac.SIGN_BODY_PART</code> is the single place to c
   </article>
 </div>
 </main>
-<footer class="site"><div class="inner">
-  Jyotish · engine v1.0.0 · extracted from B. V. Raman, <em>Astrology for Beginners</em>.
-  For study and self-reflection — not medical, financial or legal advice.
+
+<footer class="site"><div class="shell">
+  <div class="cols">
+    <div>Jyotish · engine v1.0.0 · MIT<br>
+      <span class="mono">extracted from B. V. Raman, Astrology for Beginners</span></div>
+    <div class="mono">For study and self-reflection — not medical, financial or legal advice.</div>
+  </div>
 </div></footer>
+
+<script src="../assets/js/nav.js"></script>
 </body>
 </html>
