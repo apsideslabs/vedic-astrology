@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7. Casting a horoscope — the full method — Jyotish</title>
+<meta name="description" content="The full method: GMT, sidereal time, houses, ayanamsa, navamsa — with the worked example.">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="../index.html">Jyoti<span>sh</span></a>
+  <nav>
+    <a href="../index.html">Overview</a>
+    <a href="../chart.html">Cast a chart</a>
+    <a href="../knowledge.html" class="on">Knowledge base</a>
+    <a href="../api.html">API</a>
+    <a href="../about.html">Provenance</a>
+  </nav>
+</div></div>
+<main>
+<div class="docwrap">
+  <aside class="docnav"><div class="grp"><h4>Knowledge base</h4><a href="../knowledge.html">All documents</a></div><div class="grp"><h4>Documents</h4><a href="01-foundations.html">Foundations</a><a href="02-signs.html">The twelve signs</a><a href="03-planets.html">The nine planets</a><a href="04-relationships.html">Relations between planets</a><a href="05-houses.html">The twelve houses</a><a href="06-aspects.html">Aspects</a><a href="07-calculation.html" class="on">Casting a horoscope</a><a href="08-strength.html">Strength</a><a href="09-dasha.html">Vimshottari dasha</a><a href="10-interpretation.html">Interpretation</a><a href="11-yogas.html">Yogas</a><a href="12-transits.html">Transits</a><a href="13-horary.html">Horary</a><a href="14-dasha-results.html">Dasha results</a><a href="source-notes.html">Source notes</a></div><div class="grp"><h4>Elsewhere</h4><a href="../chart.html">Cast a chart</a><a href="../api.html">API</a></div></aside>
+  <article class="prose">
+    <h1 id="7-casting-a-horoscope-the-full-method">7. Casting a horoscope — the full method</h1>
+<p><strong>SOURCE:</strong> chapter II, "Casting the Horoscope"; Appendix I, "Ayanamsa
+Determination"; Appendix II, the Nirayana Tables of Houses.</p>
+<p>This is the chapter that makes the book usable, and it is reproduced here in
+full because it is the specification the engine implements.</p>
+<h2 id="the-two-zodiacs">The two zodiacs</h2>
+<blockquote>
+<p>"There is a difference of about 22 degrees between the Western and the Hindu
+zodiacs. That is, according to the Hindu horoscope if a planet is in 20
+degrees Cancer, it will be situated in the 12th or 13th degree of Leo
+according to Western Astrology."</p>
+</blockquote>
+<p>The difference is the <strong>Ayanamsa</strong> or <strong>precessional distance</strong>. The method is
+therefore always the same shape:</p>
+<blockquote>
+<p>"Erect a horoscope as per rules given below and subtract from the positions
+so obtained, the Ayanamsa for the year of birth and the Hindu horoscope
+needed for our purpose, is obtained."</p>
+</blockquote>
+<ul>
+<li><strong>Sayana</strong> = the moving zodiac, measured from the shifting vernal equinox
+  (Western tropical).</li>
+<li><strong>Nirayana</strong> = the fixed zodiac, measured from a fixed stellar point (Hindu
+  sidereal).</li>
+</ul>
+<p>The book holds that "the greatest Hindu astrological writers referred to the
+fixed zodiac for predictions, and this fact is borne by experience"
+(Appendix I).</p>
+<h2 id="step-1-convert-local-mean-time-to-greenwich-mean-time">Step 1 — convert local mean time to Greenwich mean time</h2>
+<blockquote>
+<p>"For births west of Greenwich, add four minutes for every degree of
+longitude to the Local Mean Time of birth. For births east of Greenwich,
+subtract four minutes for every degree of longitude from the Local Mean Time
+of birth. The result is the Greenwich Mean Time of Birth."</p>
+</blockquote>
+<p>(Four minutes per degree is 15° = 1 hour, i.e. one minute of time per 15′ of
+arc.)</p>
+<p><strong>The book's example, used throughout the rest of this document:</strong> born
+2 November 1935, Saturday, 5h 20m 00s a.m. L.M.T., at longitude 5h 10m 20s
+East and latitude 13° North.</p>
+<pre><code>Local Mean Time of birth   5h 20m 00s
+Longitude of place (east)  5h 10m 20s   (subtract)
+Greenwich Mean Time        0h 09m 40s  = about 0h 10m a.m. GMT
+</code></pre>
+<h2 id="step-2-planetary-longitudes-at-birth">Step 2 — planetary longitudes at birth</h2>
+<p>Given a modern ephemeris tabulating longitudes at Greenwich Mean Noon:</p>
+<blockquote>
+<p>"If birth is a.m. or before noon, the difference of longitude between the
+previous noon and the noon of the birth date for the particular planet must
+be noted. If birth is p.m. or afternoon, the difference between the noon of
+the birth date and the next noon must be noted. This difference is the
+motion of the planet in 24 hours. From this, the proportional distance
+covered in the G.M.T. of birth can be easily obtained."</p>
+</blockquote>
+<p>The book's arithmetic for the Sun:</p>
+<pre><code>Sun's longitude at noon 1-11-1935     Scorpio 8° 08'
+Sun's motion in 12h 10m                0° 31'
+Sun's longitude at birth              Scorpio 8° 39'      &lt;- Sayana
+</code></pre>
+<p>Retrogression is simply noted in the ephemeris and carried through.</p>
+<p>The resulting Sayana positions for the example:</p>
+<table>
+<thead>
+<tr>
+<th>Graha</th>
+<th>Sayana (Western)</th>
+<th>minus ayanamsa</th>
+<th>Nirayana (Hindu)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sun</td>
+<td>Scorpio 8° 39′</td>
+<td>21° 30′</td>
+<td><strong>Libra 17° 09′</strong></td>
+</tr>
+<tr>
+<td>Moon</td>
+<td>Capricorn 14° 05′</td>
+<td></td>
+<td><strong>Sagittarius 22° 35′</strong></td>
+</tr>
+<tr>
+<td>Mars</td>
+<td>Sagittarius 3° 10′</td>
+<td></td>
+<td><strong>Sagittarius 11° 40′</strong></td>
+</tr>
+<tr>
+<td>Mercury</td>
+<td>Virgo 20° 05′</td>
+<td></td>
+<td><strong>Virgo 28° 35′</strong></td>
+</tr>
+<tr>
+<td>Jupiter</td>
+<td>Scorpio 28° 23′</td>
+<td></td>
+<td><strong>Scorpio 6° 53′</strong></td>
+</tr>
+<tr>
+<td>Venus</td>
+<td>Virgo 23° 15′</td>
+<td></td>
+<td><strong>Virgo 1° 45′</strong></td>
+</tr>
+<tr>
+<td>Saturn</td>
+<td>Aquarius 3° 32′</td>
+<td></td>
+<td><strong>Aquarius 12° 02′</strong></td>
+</tr>
+<tr>
+<td>Rahu</td>
+<td>Sagittarius 16° 04′</td>
+<td></td>
+<td><strong>Sagittarius 24° 34′</strong></td>
+</tr>
+<tr>
+<td>Ketu</td>
+<td>Gemini 16° 04′</td>
+<td></td>
+<td><strong>Gemini 24° 34′</strong></td>
+</tr>
+</tbody>
+</table>
+<p>(The Sayana column is reconstructed by adding the book's 21°30′ ayanamsa back
+to the Nirayana figures it prints; only the Nirayana column is printed in the
+book.)</p>
+<p><strong>Verification:</strong> the engine reproduces this table to within a couple of
+arcminutes from first principles — see <code>tests/test_engine.py::test_book_example_positions</code>.
+The residual comes from the book rounding its ayanamsa to 21° 30′ exactly.</p>
+<h2 id="step-3-sidereal-time-and-the-ascendant">Step 3 — sidereal time and the Ascendant</h2>
+<blockquote>
+<p>"Find out the Sidereal Time at G.M.N. ... This is given for 12 noon
+Greenwich Time. Add to this the Local [time elapsed] after the local noon,
+and also add 10 seconds per hour since noon, as this represents the
+difference between the Sidereal Time and the Mean Time. If the place of
+birth is east of Greenwich deduct at the rate of 10 seconds per hour for
+every 15 degrees of longitude (or 1 hour in time) and if the place of birth
+is west of Greenwich add a similar quantity."</p>
+</blockquote>
+<pre><code>Sidereal Time for noon preceding the birth (1-11-1935)   14h 39m 23s
+Hours passed since previous noon up to birth             17h 20m 00s
+Correction between sidereal and mean time                 0h 02m 53s
+                                                         -----------
+                                                         32h 02m 16s
+Less correction for longitude east of Greenwich           0h 00m 52s
+                                                         -----------
+                                                         32h 01m 24s
+Expunging multiples of 24: true local sidereal time      8h 01m 24s
+</code></pre>
+<p>This sidereal time, "converted into degrees", is the <strong>R.A.M.C.</strong> (right
+ascension of the meridian). Entering the <strong>Tables of Houses</strong> for the nearest
+latitude (Madras, 13° N) at that sidereal time gives the cusps:</p>
+<pre><code>10th  Cancer 28°          1st (Ascendant)  Libra 29° 39'
+11th  Leo 29°             2nd              Scorpio 29°
+12th  Virgo 30°           3rd              Sagittarius 28°
+</code></pre>
+<p>The remaining six cusps are found by adding 180°.</p>
+<h2 id="step-4-deduct-the-ayanamsa-to-get-bhavamadhyas">Step 4 — deduct the ayanamsa to get bhavamadhyas</h2>
+<blockquote>
+<p>"Cusp of the Western House less Ayanamsa will give the Bhavamadhya
+(mid-point) of the house of the Hindus."</p>
+</blockquote>
+<pre><code>Cusp of the 1st house (Ascendant)   29° 39′ Libra
+Less ayanamsa for 1935              21° 30′
+Mid-point of Lagna                   8° 01′ Libra
+</code></pre>
+<p><strong>Note the two different things in play.</strong> The Ascendant <em>degree</em> of the Hindu
+chart is 8° 01′ Libra (sidereal), but the <strong>Rasi chart</strong> — the one used "for
+ordinary purposes of prediction" — simply puts Libra as the 1st house, with
+the Sun in it. The engine reports both: <code>lagna.longitude</code> (sidereal degree)
+and <code>lagna.sign</code> (the sign that becomes the 1st bhava).</p>
+<h2 id="the-ayanamsa-itself">The ayanamsa itself</h2>
+<p><strong>SOURCE:</strong> Appendix I. Two methods are given.</p>
+<h3 id="method-1-the-books-arithmetic-rule">Method 1 — the book's arithmetic rule</h3>
+<pre><code>1) Subtract 397 from the year of birth (A.D.)
+2) Multiply the remainder by 50 1/3 seconds
+3) Reduce the product into degrees, minutes and seconds
+</code></pre>
+<p>Worked example for 1935:</p>
+<pre><code>1935 - 397 = 1538
+1538 x 50 1/3&quot; = 77412&quot;
+77412&quot; = 21° 30' 12&quot;
+</code></pre>
+<p>The book adds that "when exactly the two zodiacs were in the first point is
+doubted by a number of astronomers and accordingly the Ayanamsa —
+precessional distance — varies from 19° to 23°", and that it "increases about
+50 1/3 seconds of arc every year".</p>
+<p><strong>CAUTION — this rule is a rule of thumb, and it is about 1°27′ low.</strong> It
+assumes the two zodiacs coincided in 397 CE and that precession is exactly
+constant. Compare, for 2 November 1935:</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Ayanamsa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Book's rule, (1935−397) × 50⅓″</td>
+<td>21° 30′</td>
+</tr>
+<tr>
+<td>Lahiri (Chitrapaksha), the modern standard</td>
+<td>22° 57′</td>
+</tr>
+<tr>
+<td>Difference</td>
+<td>1° 27′</td>
+</tr>
+</tbody>
+</table>
+<p>That difference is larger than the Moon's daily motion in two hours, so it
+moves every cusp and every planet. The book's own worked example is internally
+consistent because it uses its own rule throughout — which is why the engine
+keeps <code>raman_397</code> as a selectable model: without it you cannot reproduce the
+book's chart.</p>
+<h3 id="method-2-the-modern-one-used-by-default">Method 2 — the modern one, used by default</h3>
+<p>The <strong>Lahiri (Chitrapaksha)</strong> ayanamsa is the value tabulated in the <em>Indian
+Astronomical Ephemeris</em> and used by essentially all Indian astrology software.
+Its definition is the tropical longitude of Spica (Chitra) minus 180°: the
+star Chitra is held to be at 0° Libra of the sidereal zodiac.</p>
+<p>The engine computes it as</p>
+<pre><code>ayanamsa(t) = 23° 51' 11.5&quot;  +  p_A(t)
+</code></pre>
+<p>where 23° 51′ 11.5″ is the published Lahiri value at J2000.0 and <code>p_A(t)</code> is
+the <strong>IAU 2006 accumulated general precession in ecliptic longitude</strong> since
+J2000:</p>
+<pre><code>p_A = 5028.796195 T + 1.1054348 T² + 0.00007964 T³ − 0.000023857 T⁴ − 0.0000000383 T⁵   [arcsec]
+</code></pre>
+<p>with T in Julian centuries of TT from J2000.0. Agreement with the Indian
+Astronomical Ephemeris is within a few arcseconds across 1900–2100.</p>
+<p><strong>CAUTION:</strong> if you need arcsecond-for-arcsecond agreement with commercial
+software, use the Swiss Ephemeris, which implements Lahiri natively along with
+about forty other ayanamsas. <code>ephemeris.py</code> is deliberately a thin layer: it
+returns <code>{planet: (longitude, latitude, speed)}</code> and nothing else, so a
+<code>pyswisseph</code> backend is a drop-in replacement.</p>
+<h2 id="step-5-the-navamsa">Step 5 — the Navamsa</h2>
+<p><strong>SOURCE:</strong> chapter II.</p>
+<blockquote>
+<p>"When a sign is divided into 9 equal parts each part measuring 3° 20′ is
+called a Navamsa. The nine Navamsas are governed by the lords of the nine
+signs from Aries, in the case of Aries, Leo and Sagittarius; from Capricorn
+in the case of Taurus, Virgo and Capricorn; from Libra in the case of Gemini,
+Libra and Aquarius; and in the case of Cancer, Scorpio and Pisces from
+Cancer."</p>
+</blockquote>
+<p>That is the classical rule: for <strong>movable</strong> signs the navamsa series starts
+from the sign itself; for <strong>fixed</strong> signs from the 9th from it; for <strong>common</strong>
+signs from the 5th from it. All three reduce to one continuous formula, which
+is what the engine uses:</p>
+<pre><code>navamsa_sign = floor(sidereal_longitude / 3°20′) mod 12
+</code></pre>
+<p><strong>Check against the book's own example:</strong> "a planet is in Libra 20° 10′. This
+means the seventh Navamsa. In Libra the lord of the seventh Navamsa is the
+lord of the seventh from Libra, that is lord of Aries, viz., Mars."</p>
+<pre><code>longitude = 180° + 20°10′ = 200.1667°
+200.1667 / 3.3333 = 60.05  -&gt;  floor = 60
+60 mod 12 = 0  -&gt;  Aries, whose lord is Mars   ✓
+</code></pre>
+<p>And the book's verdict on its importance:</p>
+<blockquote>
+<p>"In Hindu Astrology constant reference is made to Navamsa positions of
+planets. In a way Navamsa is much more important than the usual Rasi or
+zodiacal diagram."</p>
+</blockquote>
+<p>The engine computes the navamsa sign of every planet, of the Ascendant, and
+draws the D9 diagram alongside the Rasi.</p>
+<h2 id="step-6-what-the-finished-chart-looks-like">Step 6 — what the finished chart looks like</h2>
+<p>The book's own Rasi diagram, read out in its own words:</p>
+<blockquote>
+<p>"Lagna is Libra. Sun is in the 1st house; Jupiter in the 2nd; Moon, Mars and
+Rahu in the 3rd; Saturn in the 5th; Ketu in the 9th; and Mercury and Venus
+in the 12th. Sun and Venus are debilitated; Mercury is exalted; Saturn is in
+his own house; Mars and Jupiter have exchanged places."</p>
+</blockquote>
+<p>Every one of those statements is asserted in <code>tests/test_engine.py</code>
+(<code>test_book_chart_structure</code>, <code>test_book_chart_dignities</code>,
+<code>test_mars_jupiter_exchange</code>). The engine reproduces the whole chart.</p>
+<h2 id="the-short-route">The short route</h2>
+<p><strong>SOURCE:</strong> Appendix II. Raman's <em>Nirayana Tables of Houses</em> (with R. V.
+Vaidya) tabulate the sidereal bhavamadhyas directly, so that no ayanamsa
+subtraction is needed:</p>
+<pre><code>Sidereal Time = Y + D − I − K − C
+</code></pre>
+<p>where Y is the tabulated value for the year, D for the day, I the interval
+between mean noon and birth, K the 10-seconds-per-hour correction, and C the
+longitudinal correction between Ujjain (77° 3′) and the place of birth. The
+book works its example through this route as well and reaches
+8h 01m 25s — one second from the long route.</p>
+  </article>
+</div>
+</main>
+<footer class="site"><div class="inner">
+  Jyotish · engine v1.0.0 · extracted from B. V. Raman, <em>Astrology for Beginners</em>.
+  For study and self-reflection — not medical, financial or legal advice.
+</div></footer>
+</body>
+</html>

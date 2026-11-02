@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>6. Aspects (Drishti) — Jyotish</title>
+<meta name="description" content="Drishti, the graded sight, and the special aspects of Mars, Jupiter and Saturn.">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="../index.html">Jyoti<span>sh</span></a>
+  <nav>
+    <a href="../index.html">Overview</a>
+    <a href="../chart.html">Cast a chart</a>
+    <a href="../knowledge.html" class="on">Knowledge base</a>
+    <a href="../api.html">API</a>
+    <a href="../about.html">Provenance</a>
+  </nav>
+</div></div>
+<main>
+<div class="docwrap">
+  <aside class="docnav"><div class="grp"><h4>Knowledge base</h4><a href="../knowledge.html">All documents</a></div><div class="grp"><h4>Documents</h4><a href="01-foundations.html">Foundations</a><a href="02-signs.html">The twelve signs</a><a href="03-planets.html">The nine planets</a><a href="04-relationships.html">Relations between planets</a><a href="05-houses.html">The twelve houses</a><a href="06-aspects.html" class="on">Aspects</a><a href="07-calculation.html">Casting a horoscope</a><a href="08-strength.html">Strength</a><a href="09-dasha.html">Vimshottari dasha</a><a href="10-interpretation.html">Interpretation</a><a href="11-yogas.html">Yogas</a><a href="12-transits.html">Transits</a><a href="13-horary.html">Horary</a><a href="14-dasha-results.html">Dasha results</a><a href="source-notes.html">Source notes</a></div><div class="grp"><h4>Elsewhere</h4><a href="../chart.html">Cast a chart</a><a href="../api.html">API</a></div></aside>
+  <article class="prose">
+    <h1 id="6-aspects-drishti">6. Aspects (Drishti)</h1>
+<p><strong>SOURCE:</strong> chapter I, "Drishti or Aspect".</p>
+<h2 id="the-basic-rule">The basic rule</h2>
+<blockquote>
+<p>"For a beginner it is enough to know that according to Hindu Astrology,
+aspects are counted from sign to sign. An aspect is good or bad according to
+the relation between the aspecting and the aspected body."</p>
+</blockquote>
+<p>Sign to sign, not degree to degree. A planet in Aries aspects the whole of the
+7th sign from it (Libra) and everything in it. That is why the engine's
+<code>aspects</code> list is built from sign distances and carries no orb.</p>
+<h2 id="the-grades-of-sight">The grades of sight</h2>
+<p>The book gives a graded sight, which is the <em>drishti pinda</em> used in the
+stronger calculations:</p>
+<table>
+<thead>
+<tr>
+<th>Distance</th>
+<th>Sight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3rd, 10th</td>
+<td>a quarter sight (0.25)</td>
+</tr>
+<tr>
+<td>5th, 9th</td>
+<td>a half sight (0.5)</td>
+</tr>
+<tr>
+<td>4th, 8th</td>
+<td>three-quarters of a sight (0.75)</td>
+</tr>
+<tr>
+<td>7th</td>
+<td>a full sight (1.0)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="special-aspects">Special aspects</h2>
+<blockquote>
+<p>"Saturn, Jupiter and Mars have special aspects. Saturn powerfully aspects
+the 3rd and the 10th houses, Jupiter the 5th and the 9th houses, and Mars,
+the 4th and the 8th."</p>
+</blockquote>
+<p>Every graha has the full 7th aspect. In addition:</p>
+<table>
+<thead>
+<tr>
+<th>Planet</th>
+<th>Additional full aspects</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mars</td>
+<td>4th, 8th</td>
+</tr>
+<tr>
+<td>Jupiter</td>
+<td>5th, 9th</td>
+</tr>
+<tr>
+<td>Saturn</td>
+<td>3rd, 10th</td>
+</tr>
+<tr>
+<td>Sun, Moon, Mercury, Venus, Rahu, Ketu</td>
+<td>none — 7th only</td>
+</tr>
+</tbody>
+</table>
+<p>The engine implements this in <code>zodiac.SPECIAL_ASPECTS</code>; the partial-sight
+fractions are in <code>zodiac.PARTIAL_SIGHT</code> and are reported per house by
+<code>Chart.aspected_houses</code>.</p>
+<h2 id="the-books-worked-illustration">The book's worked illustration</h2>
+<blockquote>
+<p>"If the Sun is in Cancer and Saturn in Taurus, we say that the Sun is in the
+3rd from Saturn and consequently receives the powerful aspect (3rd house
+aspect) of Saturn."</p>
+</blockquote>
+<p>Worth checking the arithmetic: Taurus → Cancer is 3 signs, so Cancer is the
+3rd from Taurus, and Saturn's special 3rd-house aspect falls there. The engine
+reproduces this — see <code>test_aspects_include_special_ones</code>.</p>
+<h2 id="how-to-judge-an-aspect">How to judge an aspect</h2>
+<p>The book gives these rules for reading an aspect once found:</p>
+<ol>
+<li><strong>By nature of the aspecting planet.</strong> "The opposition (7th house) aspect
+   becomes extremely good when it is produced by Jupiter and the Moon. It is
+   held to be good when benefics aspect each other." "As a natural malefic his
+   [Saturn's] aspects are bad. But they produce good in case Saturn acquires
+   beneficence by temporal situations."</li>
+<li><strong>By ownership.</strong> "If Mars is the lord of the 4th and the 9th houses, he
+   gets special qualifications to produce good aspects (by the 4th house
+   aspect)." A planet aspecting its own house — by the 7th or by a special
+   aspect — "will naturally increase the signification of that house". The
+   book's example: "Venus aspecting the 7th house gives a good and fair-looking
+   wife and happiness on that account."</li>
+<li><strong>By relation.</strong> See <a href="04-relationships.md">04-relationships.md</a>: the aspect
+   is good or bad according to the relation between the aspecting and the
+   aspected body.</li>
+<li><strong>By the nature of the aspect.</strong> The 4th-house aspect of Mars is "a square
+   aspect and sometimes this is evil and sometimes beneficial"; Jupiter's 5th
+   and 9th are trines and therefore benefic in nature.</li>
+<li><strong>The opposition has the same power as conjunction.</strong> "The opposition
+   aspect has the same power to do good or bad as conjunction, according to the
+   nature of the planet involved."</li>
+</ol>
+<h2 id="where-aspects-are-used-downstream">Where aspects are used downstream</h2>
+<ul>
+<li><strong>Strength.</strong> Drukbala: "Aspects of benefics give full Drukbala while
+  aspects of malefics take away Drukbala" (chapter III).</li>
+<li><strong>Papakarthari and Subhakarthari</strong> — the Ascendant hemmed in by malefics or
+  benefics (chapter III).</li>
+<li><strong>Marriage:</strong> "If the 7th house is hemmed in between two malefics
+  (Papakarthari Yoga), then married life proves burdensome and miserable"
+  (chapter IX).</li>
+<li><strong>Health:</strong> "If the Moon is in Cancer or Scorpio in Rasi or in Navamsa and is
+  powerfully aspected by malefics, the person suffers from diseases in the
+  anus" (chapter V).</li>
+<li><strong>Longevity:</strong> "The Ascendant and the 8th from the Moon's sign being aspected
+  by malefics" produces Balarishta (chapter IV).</li>
+<li><strong>The dasha:</strong> "a planet during its Dasa generally gives the results
+  pertaining to the houses it rules <strong>or aspects</strong>" (chapter X).</li>
+</ul>
+  </article>
+</div>
+</main>
+<footer class="site"><div class="inner">
+  Jyotish · engine v1.0.0 · extracted from B. V. Raman, <em>Astrology for Beginners</em>.
+  For study and self-reflection — not medical, financial or legal advice.
+</div></footer>
+</body>
+</html>
