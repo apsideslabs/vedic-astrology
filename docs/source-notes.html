@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Source notes — Jyotish</title>
+<meta name="description" content="Provenance, the OCR damage catalogued, what was reconstructed and why.">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="../index.html">Jyoti<span>sh</span></a>
+  <nav>
+    <a href="../index.html">Overview</a>
+    <a href="../chart.html">Cast a chart</a>
+    <a href="../knowledge.html" class="on">Knowledge base</a>
+    <a href="../api.html">API</a>
+    <a href="../about.html">Provenance</a>
+  </nav>
+</div></div>
+<main>
+<div class="docwrap">
+  <aside class="docnav"><div class="grp"><h4>Knowledge base</h4><a href="../knowledge.html">All documents</a></div><div class="grp"><h4>Documents</h4><a href="01-foundations.html">Foundations</a><a href="02-signs.html">The twelve signs</a><a href="03-planets.html">The nine planets</a><a href="04-relationships.html">Relations between planets</a><a href="05-houses.html">The twelve houses</a><a href="06-aspects.html">Aspects</a><a href="07-calculation.html">Casting a horoscope</a><a href="08-strength.html">Strength</a><a href="09-dasha.html">Vimshottari dasha</a><a href="10-interpretation.html">Interpretation</a><a href="11-yogas.html">Yogas</a><a href="12-transits.html">Transits</a><a href="13-horary.html">Horary</a><a href="14-dasha-results.html">Dasha results</a><a href="source-notes.html" class="on">Source notes</a></div><div class="grp"><h4>Elsewhere</h4><a href="../chart.html">Cast a chart</a><a href="../api.html">API</a></div></aside>
+  <article class="prose">
+    <h1 id="source-notes">Source notes</h1>
+<h2 id="the-source">The source</h2>
+<p><strong>B. V. Raman, <em>Astrology for Beginners</em></strong> — 135 pages, 12 chapters and two
+appendices. Published by UBS Publishers' Distributors Ltd., 5 Ansari Road,
+New Delhi 110 002.</p>
+<p>The file this knowledge base was extracted from is a scan of the book held by
+the Internet Archive:</p>
+<pre><code>title:    Astrology for Beginners - BV Raman
+creator:  Digitized by the Internet Archive
+producer: Recoded by LuraDocument PDF v2.65
+created:  2017-05-07
+pages:    135
+size:     2.29 MB
+</code></pre>
+<p>The scan carries an OCR text layer of about 147,000 characters. Every page has
+text; pages 1, 6, 8 and 10 are near-empty (the cover plate and blank versos),
+and pages 60–63 are duplicated in the source scan (page 60 repeats as 62, page
+61 as 63).</p>
+<h2 id="what-was-done-to-it">What was done to it</h2>
+<ol>
+<li>The text layer was extracted page by page.</li>
+<li>The running watermark (<code>jyotishbooks.tk</code>, <code>jyoti hb ok;</code>) was stripped.</li>
+<li>The one-word-per-line OCR layout was reflowed into paragraphs.</li>
+<li>The chapters were segmented by page range and read in full.</li>
+<li>The content was reorganised by <em>subject</em> rather than by chapter, because the
+   book returns to the same topics repeatedly (friendship appears in I and III,
+   the Navamsa in II and IX, Saturn in IV, X and XII).</li>
+<li>Every table was transcribed by hand from the reflowed text.</li>
+</ol>
+<p>Nothing was paraphrased into a claim the book does not make. Where the book is
+wrong or dated, it is marked <strong>CAUTION</strong> rather than silently corrected.</p>
+<h2 id="the-ocr-damage-catalogued">The OCR damage, catalogued</h2>
+<p>This matters because it determines which tables are complete and which are not.</p>
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>Damage</th>
+<th>How it was handled</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pp. 7–8, natural friendship table</td>
+<td>columns interleaved, rows cut through the page break</td>
+<td>replaced with the standard Parashari table, flagged <strong>STANDARD</strong></td>
+</tr>
+<tr>
+<td>p. 11, moolatrikona of Mars</td>
+<td>printed "0° to it"</td>
+<td>reconstructed as 12°, the only consistent value</td>
+</tr>
+<tr>
+<td>p. 11, moolatrikona of the Moon</td>
+<td>printed "Taurus 4° to 20°"</td>
+<td>kept as printed; the standard value 4°–30° is noted</td>
+</tr>
+<tr>
+<td>p. 24, Navamsa construction table</td>
+<td>completely destroyed (a jumble of single characters)</td>
+<td>the classical rule was stated in prose in the same chapter and is implemented from that</td>
+</tr>
+<tr>
+<td>pp. 30–31, table of benefics / malefics / yogakarakas / marakas</td>
+<td>columns interleaved, several rows unreadable</td>
+<td>not transcribed; the engine <strong>derives</strong> yogakaraka and maraka from ownership instead</td>
+</tr>
+<tr>
+<td>p. 33, first "Important Yoga"</td>
+<td>cut in half by the page break</td>
+<td>identified as unidentifiable; listed in 11-yogas.md as missing</td>
+</tr>
+<tr>
+<td>pp. 52–54, chapter VI and VII horoscope diagrams</td>
+<td>glyph soup</td>
+<td>not transcribed; the worked examples were used only where the prose states the conclusion</td>
+</tr>
+<tr>
+<td>p. 69, dasha table</td>
+<td>reordered by the OCR into a jumble of sign / nakshatra / years</td>
+<td>rebuilt from the plain list of years given two pages later ("Jupiter 16 yrs. Saturn 19. Merc. 17") and from the standard nakshatra cycle</td>
+</tr>
+<tr>
+<td>pp. 75–76, "General Results" items 3 and 4</td>
+<td>lost across a page break</td>
+<td>numbered items 3 and 4 are missing; noted in 09-dasha.md</td>
+</tr>
+<tr>
+<td>pp. 96–100, gochara tables</td>
+<td>Sun houses 9–11, Mercury 9–10, Saturn 5–6 lost at page breaks</td>
+<td>left blank and marked "not legible in the source"; never filled from another book</td>
+</tr>
+<tr>
+<td>pp. 103–117, dasha results</td>
+<td>scattered single-line losses</td>
+<td>marked "line lost in the scan" in 14-dasha-results.md</td>
+</tr>
+<tr>
+<td>throughout</td>
+<td>roman numerals garbled (xiv → "xlv", xxii → "xx ii"), chapter numbers ("CHAPTER n", "CHAPTER m"), page numbers ("1ft", "4^"), word-level slips ("Redemplion", "himslelf", "caclulated")</td>
+<td>corrected silently where obvious, since they carry no astrological content</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-is-in-the-book-but-not-in-this-repository">What is in the book but not in this repository</h2>
+<ul>
+<li><strong>Ashtakavarga</strong> — chapter XII refers to Raman's separate book on it. Not
+  implemented.</li>
+<li><strong>Full Shadbala</strong> — chapter III refers to <em>Graha and Bhava Balas</em>. Not
+  implemented; see 08-strength.md for what is implemented instead.</li>
+<li><strong>Varshaphala, muhurta, electional astrology</strong> — other books in the series.</li>
+<li><strong>The Navamsa-count methods</strong> for the number of brothers and the number of
+  children — the rules are recorded in 10-interpretation.md but deliberately not
+  implemented, because they are the rules most likely to be read as a prediction
+  about a real family.</li>
+<li><strong>The Sade Sati first/second/third passage reading</strong> — recorded in
+  12-transits.md, not implemented; see the caution there.</li>
+</ul>
+<h2 id="what-is-not-in-the-book-but-is-in-this-repository">What is not in the book but is in this repository</h2>
+<p>Flagged <strong>STANDARD</strong> wherever it appears:</p>
+<ul>
+<li>the natural friendship rows for Rahu and Ketu;</li>
+<li>the combustion orbs;</li>
+<li>the fuller house significations;</li>
+<li>the conventional Parashari exaltation degrees for Rahu and Ketu (Taurus 20°
+  and Scorpio 20° are actually the book's, but they are the standard values
+  too);</li>
+<li>the IAU 2006 precession polynomial behind the Lahiri ayanamsa;</li>
+<li>the mean-node formula (Meeus, ch. 47);</li>
+<li>the ascendant and midheaven formulae;</li>
+<li>the Porphyry/Sripati house cusps;</li>
+<li>the panchanga (the book does not treat it at all).</li>
+</ul>
+<h2 id="copyright">Copyright</h2>
+<p>The <em>book</em> is under copyright and this repository does not reproduce it. What
+is here is a structured summary of its rules — the kind of extraction a student
+would make for their own study — together with code that was written from
+scratch. Do not redistribute the scanned PDF with this repository.</p>
+<p>The code is MIT licensed (see <code>LICENSE</code>). The prose in <code>docs/</code> is a derivative
+summary of a copyrighted work and is provided for study and commentary; if you
+intend to publish it commercially, take your own view on the permissions you
+need.</p>
+<h2 id="verifying-the-extraction">Verifying the extraction</h2>
+<p>The strongest check available is that the book carries a fully worked example,
+and the engine reproduces it. Chapter II prints the nine grahas and the
+Ascendant for a birth at Madras on 2 November 1935; <code>tests/test_engine.py</code>
+asserts every one of them, plus the Rasi chart's structure, the dignities, the
+Mars–Jupiter exchange, the navamsa rule, and the Vimshottari balance of 6y 1m
+15d.</p>
+<p>If a transcription error had crept into the exaltation table, the ayanamsa, the
+nakshatra spans, the navamsa formula or the dasha arithmetic, those tests would
+fail. They pass to within a couple of arcminutes.</p>
+  </article>
+</div>
+</main>
+<footer class="site"><div class="inner">
+  Jyotish · engine v1.0.0 · extracted from B. V. Raman, <em>Astrology for Beginners</em>.
+  For study and self-reflection — not medical, financial or legal advice.
+</div></footer>
+</body>
+</html>
