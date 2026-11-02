@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Knowledge base — Jyotish</title>
+<meta name="description" content="The extracted knowledge of B. V. Raman's Astrology for Beginners: signs, planets, houses, aspects, calculation, dashas, interpretation, yogas, transits, horary.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<div class="topbar"><div class="inner">
+  <a class="brand" href="index.html">Jyoti<span>sh</span></a>
+  <nav>
+    <a href="index.html">Overview</a>
+    <a href="chart.html">Cast a chart</a>
+    <a href="knowledge.html" class="on">Knowledge base</a>
+    <a href="api.html">API</a>
+    <a href="about.html">Provenance</a>
+  </nav>
+</div></div>
+<main>
+  <h1>Knowledge base</h1>
+  <p class="lede">Fifteen documents extracted from the book and reorganised by subject,
+    because the book keeps circling back — friendship appears in chapters I and III, the
+    Navamsa in II and IX, Saturn in IV, X and XII.</p>
+
+  <p>Statements are tagged with where they come from: <span class="pill">SOURCE</span>
+    is stated in the book, <span class="pill">STANDARD</span> is common practice the
+    book assumes but does not spell out, and <span class="pill bad">CAUTION</span> marks
+    a place where a 1930s primer should not be anyone's last word. Where the scan is
+    damaged, the gap is shown rather than filled from another book.</p>
+
+  <div class="doclist">
+    <a href="docs/01-foundations.html"><strong>Foundations</strong><span>The premises of the system, the zodiac, the 27 nakshatras. <em>— ch. I, Introduction</em></span></a><a href="docs/02-signs.html"><strong>The twelve signs</strong><span>Rasis, their natures, elements and the organs they govern. <em>— ch. I, V</em></span></a><a href="docs/03-planets.html"><strong>The nine planets</strong><span>Grahas, karakas, exaltation, moolatrikona, the ten avasthas. <em>— ch. I</em></span></a><a href="docs/04-relationships.html"><strong>Relations between planets</strong><span>Permanent, temporary and mixed friendship; why they matter. <em>— ch. I</em></span></a><a href="docs/05-houses.html"><strong>The twelve houses</strong><span>Bhavas, kendras and trines, karakas, how to read a house. <em>— ch. I</em></span></a><a href="docs/06-aspects.html"><strong>Aspects</strong><span>Drishti, the graded sight, and the special aspects of Mars, Jupiter and Saturn. <em>— ch. I</em></span></a><a href="docs/07-calculation.html"><strong>Casting a horoscope</strong><span>The full method: GMT, sidereal time, houses, ayanamsa, navamsa — with the worked example. <em>— ch. II, App. I–II</em></span></a><a href="docs/08-strength.html"><strong>Strength</strong><span>The six Shadbalas, the judgement rules, and what this engine actually computes. <em>— ch. III</em></span></a><a href="docs/09-dasha.html"><strong>Vimshottari dasha</strong><span>The nine periods, the arithmetic, the balance at birth, how to judge a period. <em>— ch. X</em></span></a><a href="docs/10-interpretation.html"><strong>Interpretation</strong><span>Longevity, appearance, health, education, wealth, livelihood, parents, marriage, children. <em>— ch. IV–IX</em></span></a><a href="docs/11-yogas.html"><strong>Yogas</strong><span>Papakarthari, Sunapha, Anapha, Durdhura, Kemadruma, Adhiyoga, Rajayoga. <em>— ch. III</em></span></a><a href="docs/12-transits.html"><strong>Transits</strong><span>Gochara from the Janma Rasi, planet by planet, and Sade Sati. <em>— ch. XII</em></span></a><a href="docs/13-horary.html"><strong>Horary</strong><span>Prasna: answering questions from the moment of asking. <em>— ch. XI</em></span></a><a href="docs/14-dasha-results.html"><strong>Dasha results</strong><span>What each planet's period gives, house by house. <em>— ch. X</em></span></a><a href="docs/source-notes.html"><strong>Source notes</strong><span>Provenance, the OCR damage catalogued, what was reconstructed and why. <em>— —</em></span></a>
+  </div>
+
+  <h2>How the engine uses this</h2>
+  <p>Every rule the reading applies has an id and a chapter reference, so a statement
+    in a chart can be traced back to a page here. The rule ids are listed in
+    <code>src/jyotish/interpret.py</code>, and the data tables the engine runs on —
+    exaltations, moolatrikonas, friendships, house significations, the gochara
+    tables — are in <code>src/jyotish/zodiac.py</code> and
+    <code>src/jyotish/transits.py</code>. The browser build shares them through
+    <code>site/assets/js/data.js</code>, which is generated from the Python source so
+    the two cannot drift apart.</p>
+</main>
+<footer class="site"><div class="inner">
+  Jyotish · engine v1.0.0 · extracted from B. V. Raman, <em>Astrology for Beginners</em>.
+  For study and self-reflection — not medical, financial or legal advice.
+</div></footer>
+</body>
+</html>
